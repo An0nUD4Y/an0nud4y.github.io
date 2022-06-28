@@ -1,3 +1,48 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Htb on An0nud4y</title><link>https://an0nud4y.com/htb/</link><description>Recent content in Htb on An0nud4y</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>&lt;a href="https://an0nud4y.com/" target="_blank" rel="noopener">An0nud4y&lt;/a></copyright><lastBuildDate>Mon, 20 Jun 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://an0nud4y.com/htb/index.xml" rel="self" type="application/rss+xml"/><item><title>HackTheBox: Love</title><link>https://an0nud4y.com/htb/htb-love/</link><pubDate>Mon, 20 Jun 2022 00:00:00 +0000</pubDate><guid>https://an0nud4y.com/htb/htb-love/</guid><description>LOVE (Windows) Writeup Reconnaissance Doing a initial nmap scan revealed following result.
 nmap -A -oA nmap/initial 10.10.10.242 -vvv Got the following Open Ports.
-PORT 80 : running HTTP (Apache httpd 2.4.46 ((Win64) OpenSSL/1.1.1j PHP/7.3.27)) PORT 135 : running MSRPC (Microsoft Windows RPC) PORT 139 : running netbios-ssn (Microsoft Windows netbios-ssn) PORT 443 : running ssl/http (Apache httpd 2.4.46 (OpenSSL/1.1.1j PHP/7.3.27)) PORT 445 : running microsoft-ds (Windows 10 Pro 19042 microsoft-ds) PORT 3306 : running MYSQL (MariaDB server) PORT 5000 : running http (Apache httpd 2.</description></item></channel></rss>
+PORT 80 : running HTTP (Apache httpd 2.4.46 ((Win64) OpenSSL/1.1.1j PHP/7.3.27)) PORT 135 : running MSRPC (Microsoft Windows RPC) PORT 139 : running netbios-ssn (Microsoft Windows netbios-ssn) PORT 443 : running ssl/http (Apache httpd 2.4.46 (OpenSSL/1.1.1j PHP/7.3.27)) PORT 445 : running microsoft-ds (Windows 10 Pro 19042 microsoft-ds) PORT 3306 : running MYSQL (MariaDB server) PORT 5000 : running http (Apache httpd 2.</description></item><item><title>HackTheBox: Routerspace</title><link>https://an0nud4y.com/htb/htb-router/</link><pubDate>Mon, 13 Jun 2022 00:00:00 +0000</pubDate><guid>https://an0nud4y.com/htb/htb-router/</guid><description>ROUTERSPACE (Linux) Walkthrough Reconnaissance Let&amp;rsquo;s do a Quick Scan of the target using NMAP.
+nmap -sV -sC -O -oA nmap/initial 10.10.11.148
+-sC : run Default Nmap scripts -sV : detects service versions -O : detects OS -oA : output all formats and store in file *nmap/initial We got the following result &amp;hellip;
+PORT 22 : running SSH (protocol 2.0) PORT 80 : running HTTP. └─# nmap -sV -sC -O -oA nmap/initial 10.</description></item><item><title>HackTheBox: Paper</title><link>https://an0nud4y.com/htb/htb-paper/</link><pubDate>Wed, 25 May 2022 00:00:00 +0000</pubDate><guid>https://an0nud4y.com/htb/htb-paper/</guid><description>PAPER (Linux) Walkthrough Reconnaissance Let&amp;rsquo;s do a Quick Scan of the target using NMAP.
+nmap -sV -sC -O -oA nmap/initial 10.10.11.143
+-sC : run Default Nmap scripts -sV : detects service versions -O : detects OS -oA : output all formats and store in file *nmap/initial We got the following result &amp;hellip;
+PORT 22 : running OpenSSH 8.0 (protocol 2.0) PORT 80/ 443 : running Apache httpd 2.</description></item><item><title>HackTheBox: Previse</title><link>https://an0nud4y.com/htb/htb-previse/</link><pubDate>Wed, 25 May 2022 00:00:00 +0000</pubDate><guid>https://an0nud4y.com/htb/htb-previse/</guid><description>PREVISE (Linux) Walkthrough ENUMERATION MACHINE IP export IP=10.10.11.104
+NMAP SCAN RESULTS PORT STATE SERVICE REASON
+22/tcp open ssh syn-ack ttl 63
+80/tcp open http syn-ack ttl 63
+Enumerating Web Contents Using gobuster to find the directories gobuster dir -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -u http://10.10.11.104/ -t 100 -x php,txt,js,html,jpg -q
+Directories Found /download.php (Status: 200) [Size: 2224]
+/login.php (Status: 200) [Size: 2224]
+/index.php (Status: 200) [Size: 2224]
+/files.php (Status: 200) [Size: 2224]
+/nav.</description></item><item><title>HackTheBox: Backdoor</title><link>https://an0nud4y.com/htb/htb-backgoor/</link><pubDate>Sun, 15 May 2022 00:00:00 +0000</pubDate><guid>https://an0nud4y.com/htb/htb-backgoor/</guid><description>BACKDOOR (Linux) Walkthrough Reconnaissance Let&amp;rsquo;s do a Quick Scan of the target using NMAP.
+nmap -sV -sC -O -oA nmap/initial 10.10.11.125
+-sC : run Default Nmap scripts -sV : detects service versions -O : detects OS -oA : output all formats and store in file *nmap/initial We got the following result &amp;hellip;
+PORT 22 : running SSH (OpenSSH 8.2p1) PORT 80 : running HTTP (Apache httpd 2.</description></item><item><title>HackTheBox: Meta</title><link>https://an0nud4y.com/htb/htb-meta/</link><pubDate>Sat, 16 Apr 2022 00:00:00 +0000</pubDate><guid>https://an0nud4y.com/htb/htb-meta/</guid><description>META (Linux) Writeup Reconnaissance Let&amp;rsquo;s do a Quick Scan of the target using NMAP.
+nmap -sV -sC -O -oA nmap/initial 10.10.11.140
+-sC : run Default Nmap scripts -sV : detects service versions -O : detects OS -oA : output all formats and store in file *nmap/initial We got the following Result &amp;hellip;
+PORT 22 : running OpenSSH 7.9p1 Debian 10+deb10u2 (protocol 2.0) PORT 80 : running Apache httpd Let&amp;rsquo;s do a full machine scan as well.</description></item><item><title>HackTheBox: Pandora</title><link>https://an0nud4y.com/htb/htb-pandora/</link><pubDate>Thu, 14 Apr 2022 00:00:00 +0000</pubDate><guid>https://an0nud4y.com/htb/htb-pandora/</guid><description>PANDORA (Linux) Walkthrough Reconnaissance Let&amp;rsquo;s do a Quick Scan of the target using NMAP.
+nmap -sV -sC -O -oA nmap/initial 10.10.11.136
+-sC : run Default Nmap scripts -sV : detects service versions -O : detects OS -oA : output all formats and store in file *nmap/initial We got the following result &amp;hellip;
+PORT 22 : running SSH (OpenSSH 8.2p1) PORT 80 : running HTTP (Apache httpd 2.</description></item><item><title>HackTheBox: Explore</title><link>https://an0nud4y.com/htb/htb-explore/</link><pubDate>Mon, 21 Feb 2022 00:00:00 +0000</pubDate><guid>https://an0nud4y.com/htb/htb-explore/</guid><description>HTB - EXPLORE (Android-Machine) Enumeration Machine IP export IP=10.10.10.247
+Nmap Scan Results Nmap May take some time to sacn all 65535 ports
+So we will use RUSTSCAN
+Using Rustscan to Find all open ports rustscan -a 10.10.10.247
+Open 10.10.10.247:2222
+Open 10.10.10.247:37721
+Open 10.10.10.247:59777
+Now Use NMAP to scan these Open Ports nmap -p 2222,37721,59777 10.10.10.247 -vvv -sV -A -sC PORT STATE SERVICE REASON VERSION
+2222/tcp open ssh syn-ack ttl 63 (protocol 2.</description></item><item><title>HackTheBox: Horizontall</title><link>https://an0nud4y.com/htb/htb-horizontall/</link><pubDate>Fri, 14 Jan 2022 00:00:00 +0000</pubDate><guid>https://an0nud4y.com/htb/htb-horizontall/</guid><description>HTB - HORIZONTALL ENUMERATION MACHINE IP export IP=10.10.11.105
+NMAP SCAN RESULT PORT STATE SERVICE
+22/tcp open ssh
+80/tcp open http
+Enumerating/Exploring Web Resources http://10.10.11.105 will redirect to http://horizontall.htb/
+So add this to /etc/hosts
+echo &amp;quot;10.10.11.105 horizontall.htb&amp;quot;&amp;gt;&amp;gt; /etc/hosts
+Nothing Found in web panel
+Trying Directory Bruteforcing
+gobuster dir -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -u http://10.10.11.105/ -t 100 -x php,txt,js,html,jpg -q
+Nothing Useful Found in Directory Bruteforcing</description></item><item><title>HackTheBox: Secret</title><link>https://an0nud4y.com/htb/htb-secret/</link><pubDate>Wed, 15 Dec 2021 00:00:00 +0000</pubDate><guid>https://an0nud4y.com/htb/htb-secret/</guid><description>SECRET (Linux) Walkthrough Reconnaissance Let&amp;rsquo;s do a Quick Scan of the target using NMAP.
+nmap -sV -sC -O -oA nmap/initial 10.10.11.120
+-sC : run Default Nmap scripts -sV : detects service versions -O : detects OS -oA : output all formats and store in file *nmap/initial We got the following result &amp;hellip;
+PORT 22 : running OpenSSH (OpenSSH 8.2p1 Ubuntu 4ubuntu0.3) PORT 80 : running HTTP (nginx 1.</description></item></channel></rss>

